@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "my-quarto-site.html",
+    "href": "my-quarto-site.html",
+    "title": "my-quarto-site",
+    "section": "",
+    "text": "This is an important note.\n\n\n\nQuarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "my-quarto-site.html#quarto",
+    "href": "my-quarto-site.html#quarto",
+    "title": "my-quarto-site",
+    "section": "",
+    "text": "This is an important note.\n\n\n\nQuarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About\nThis is the about page."
+  },
+  {
+    "objectID": "pra-01.html",
+    "href": "pra-01.html",
+    "title": "Quarto",
+    "section": "",
+    "text": "graph TD\n    A[Start: Install Quarto] --&gt; B[Create Quarto Project]\n    B --&gt; C[Modify Website Content]\n    C --&gt;|Add Pages, Call-outs, Mermaid Diagrams| D[Configure _quarto.yml]\n    D --&gt; E[Set Up Git Repository]\n    E --&gt; F[Link to GitHub Repository]\n    F --&gt; G[Publish to GitHub Pages]\n    G --&gt; H[Complete Exercise]\n\n\n\n\n\n\n\nDescription of Nodes:\n\nA: Install Quarto.\nB: Create a Quarto project using quarto create-project.\nC: Modify the website (add pages, call-outs, and diagrams).\nD: Update and configure _quarto.yml for navigation and settings.\nE: Initialize Git locally.\nF: Link to a remote GitHub repository.\nG: Deploy the website to GitHub Pages.\nH: The end goal of completing the exercise."
+  }
+]
