@@ -1,0 +1,4 @@
+/BooksBackend/
+!/BooksBackend/Dockerfile
+/BooksFrontend/
+!/BooksFrontend/Dockerfile
