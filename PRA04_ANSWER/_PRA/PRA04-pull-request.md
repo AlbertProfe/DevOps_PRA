@@ -2,8 +2,12 @@
 
 ## Explanation
 
-
-
+I want to build scripts to automate all the process using .env variables to 
+- preparing resources to create both dockers: `copy-resources-sh`
+    - backend
+    - frontend
+- creating backend docker: `docker-build-backend.sh`
+- creating frontend docker: `docker-build-frontend.sh`
 
 ## Tasks
 
