@@ -13,8 +13,9 @@ while IFS== read -r key value; do
 done <<< "${ENV_VARS_TO_LOAD}"
 
 docker build \
-    --tag pra04/backend-books:1.0 \
-    --file backend.Dockerfile \
-    --build-arg SPRING_DIR="${SPRING_DIR}" \
-    --build-arg SPRING_JAR="${SPRING_JAR}" \
-    .
+    --tag pra04/frontend-books:1.0 \
+    --file fronted.Dockerfile \
+    --build-arg REACT_DIR="${REACT_DIR}" \
+    --build-arg REACT_PORT="${REACT_PORT}" \
+    --progress plain \
+     .

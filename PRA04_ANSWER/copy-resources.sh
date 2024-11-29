@@ -17,12 +17,12 @@ if [ -d "${SPRING_DIR}" ]; then
 fi
 mkdir -p "${SPRING_DIR}"
 cp ../Resources/SpringBoot_projects/BooksPageable-0.0.4-SNAPSHOT.jar "${SPRING_DIR}"/"${SPRING_JAR}".jar
-echo "Backend resources copied"
+echo "Backend resources copied to ${SPRING_DIR}"
 
 if [ -d "${REACT_DIR}" ]; then
     rm -rf "${REACT_DIR}"
 fi
 mkdir -p "${REACT_DIR}"
 tar -xzf ../Resources/React_projects/dist.tar.gz  --strip-components 1 --directory "${REACT_DIR}"
-echo "Frontend resources copied"
+echo "Frontend resources copied to ${REACT_DIR}"
 
