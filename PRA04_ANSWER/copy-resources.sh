@@ -12,11 +12,14 @@ while IFS== read -r key value; do
     printf -v "$key" %s "$value" && export "$key"
 done <<< "${ENV_VARS_TO_LOAD}"
 
-
-rm -rf "${SPRING_DIR}"
+if [ -d "${SPRING_DIR}" ]; then
+    rm -rf "${SPRING_DIR}"
+fi
 mkdir -p "${SPRING_DIR}"
 cp ../Resources/SpringBoot_projects/BooksPageable-0.0.4-SNAPSHOT.jar "${SPRING_DIR}"/"${SPRING_JAR}".jar
 
-rm -rf "${REACT_DIR}"
+if [ -d "${REACT_DIR}" ]; then
+    rm -rf "${REACT_DIR}"
+fi
 mkdir -p "${REACT_DIR}"
 tar -xvzf ../Resources/React_projects/dist.tar.gz  --strip-components 1 --directory "${REACT_DIR}"
