@@ -9,6 +9,15 @@ I want to build scripts to automate all the process using .env variables to
 - creating backend docker: `docker-build-backend.sh`
 - creating frontend docker: `docker-build-frontend.sh`
 
+To load variables from .env file I created some util files:
+- remove-comments.sed  
+    remove all shell comments, after # char, but keeping strings. Code from [here](https://sleeplessbeastie.eu/2012/11/07/how-to-remove-comments-from-a-shell-script/)
+    
+    One example:
+    ```
+    sed -f util/remove-comments.sed util/remove-comments.sh
+    ```
+
 ## Tasks
 
 1. [x] Install Docker CLI
