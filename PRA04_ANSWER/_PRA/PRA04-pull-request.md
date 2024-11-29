@@ -11,12 +11,19 @@ I want to build scripts to automate all the process using .env variables to
 
 To load variables from .env file I created some util files:
 - remove-comments.sed  
-    remove all shell comments, after # char, but keeping strings. Code from [here](https://sleeplessbeastie.eu/2012/11/07/how-to-remove-comments-from-a-shell-script/)
-    
-    One example:
+    remove all shell comments, after # char, but keeping strings. Code based on [this post](https://sleeplessbeastie.eu/2012/11/07/how-to-remove-comments-from-a-shell-script/)
+
+    Example cleaning of comments and empty lines:
     ```
-    sed -f util/remove-comments.sed util/remove-comments.sh
+    bash util/clean-env-file.sh util/to-test.sh
     ```
+
+    Example of loading env vars:
+    ```
+    bash util/test-load-env.sh
+    ```
+
+
 
 ## Tasks
 
