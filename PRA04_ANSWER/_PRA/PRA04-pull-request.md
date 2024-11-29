@@ -2,12 +2,15 @@
 
 ## Explanation
 
-I want to build scripts to automate all the process using .env variables to 
-- preparing resources to create both dockers: `copy-resources-sh`
+I created scripts to automate all the process using .env variables to:  
+- prepare resources to create both dockers: `copy-resources-sh`
     - backend
     - frontend
-- creating backend docker: `docker-build-backend.sh`
-- creating frontend docker: `docker-build-frontend.sh`
+- create backend docker: `docker-build-backend.sh`
+    Replaced `openjdk:21-jdk-slim` by `bellsoft/liberica-openjdk-alpine:21` because is lighter and is the official recomendation from [spring.io](https://spring.io/quickstart)
+- create frontend docker: `docker-build-frontend.sh`
+
+
 
 To load variables from .env file I created some util files:
 - remove-comments.sed  
@@ -29,7 +32,7 @@ To load variables from .env file I created some util files:
 
 1. [x] Install Docker CLI
 2. [x] Create a DockerHub Account
-3. [ ] Create Dockerfiles
+3. [x] Create Dockerfiles
 4. [ ] Build and Run Docker Containers
 5. [ ] H2 Database Configuration
 6. [ ] Implement Book API with Spring Boot
