@@ -1,4 +1,3 @@
-/BooksBackend/
-!/BooksBackend/Dockerfile
-/BooksFrontend/
-!/BooksFrontend/Dockerfile
+.env
+/backend/
+/frontend/
