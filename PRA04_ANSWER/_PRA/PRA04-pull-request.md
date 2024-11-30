@@ -9,8 +9,7 @@ I created scripts to automate all the process using .env variables to:
 - create backend docker: `docker-build-backend.sh`
     Replaced `openjdk:21-jdk-slim` by `bellsoft/liberica-openjdk-alpine:21` because is lighter and is the official recomendation from [spring.io](https://spring.io/quickstart)
 - create frontend docker: `docker-build-frontend.sh`
-
-
+- create `docker-run.sh` to execute both dockers
 
 To load variables from .env file I created some util files:
 - remove-comments.sed  
@@ -26,6 +25,22 @@ To load variables from .env file I created some util files:
     bash util/test-load-env.sh
     ```
 
+## Screenshots
+
+### docker build backend
+![docker build backend](img/pra04/01-build-backend.png)
+
+### docker build frontend
+![docker build frontend](img/pra04/02-build-frontend.png)
+
+### launching dockers
+![launching dockers](img/pra04/03-launch-dockers.png)
+
+### dockers working
+![dockers working](img/pra04/04-web-working.png)
+
+### killing dockers
+![killing dockers](img/pra04/05-killing-dockers.png)
 
 
 ## Tasks
@@ -33,8 +48,8 @@ To load variables from .env file I created some util files:
 1. [x] Install Docker CLI
 2. [x] Create a DockerHub Account
 3. [x] Create Dockerfiles
-4. [ ] Build and Run Docker Containers
+4. [x] Build and Run Docker Containers
 5. [ ] H2 Database Configuration
 6. [ ] Implement Book API with Spring Boot
-7. [ ] Consume API with React using Axios
+7. [x] Consume API with React using Axios
 
