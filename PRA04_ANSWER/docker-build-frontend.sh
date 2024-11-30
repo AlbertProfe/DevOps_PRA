@@ -13,9 +13,13 @@ while IFS== read -r key value; do
 done <<< "${ENV_VARS_TO_LOAD}"
 
 docker build \
-    --tag pra04/frontend-books:1.0 \
+    --tag ${REACT_TAG}":${REACT_VER}" \
     --file fronted.Dockerfile \
+    --build-arg MAINTAINER="${MAINTAINER}" \
     --build-arg REACT_DIR="${REACT_DIR}" \
     --build-arg REACT_PORT="${REACT_PORT}" \
-    --progress plain \
      .
+
+#    --progress plain \
+# to see execution output like
+# RUN echo $(ls  /usr/share/nginx/html)
