@@ -33,6 +33,9 @@ To load variables from .env file I created some util files:
 ### docker build frontend
 ![docker build frontend](img/pra04/02-build-frontend.png)
 
+### list docker images
+![list docker images](img/pra04/02--docker-images.png)
+
 ### launching dockers
 ![launching dockers](img/pra04/03-launch-dockers.png)
 
