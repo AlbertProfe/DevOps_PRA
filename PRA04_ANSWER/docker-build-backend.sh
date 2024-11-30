@@ -17,4 +17,5 @@ docker build \
     --file backend.Dockerfile \
     --build-arg SPRING_DIR="${SPRING_DIR}" \
     --build-arg SPRING_JAR="${SPRING_JAR}" \
+    --build-arg SPRING_PORT="${SPRING_PORT}" \
     .

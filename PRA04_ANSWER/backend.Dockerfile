@@ -4,9 +4,12 @@ FROM bellsoft/liberica-openjdk-alpine:21
 # parameters
 ARG SPRING_DIR
 ARG SPRING_JAR
+ARG SPRING_PORT
 ENV ENV_SPRING_DIR=$SPRING_DIR
 ENV ENV_SPRING_JAR=$SPRING_JAR
+ENV ENV_SPRING_PORT=$SPRING_PORT
 
 LABEL maintainer="jc-programs"
 COPY $ENV_SPRING_DIR/$ENV_SPRING_JAR.jar app.jar
+EXPOSE $ENV_SPRING_PORT
 ENTRYPOINT ["java", "-jar", "/app.jar"]
