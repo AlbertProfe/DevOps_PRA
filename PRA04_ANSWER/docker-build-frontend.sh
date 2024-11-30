@@ -14,7 +14,7 @@ done <<< "${ENV_VARS_TO_LOAD}"
 
 docker build \
     --tag ${REACT_TAG}":${REACT_VER}" \
-    --file fronted.Dockerfile \
+    --file frontend.Dockerfile \
     --build-arg MAINTAINER="${MAINTAINER}" \
     --build-arg REACT_DIR="${REACT_DIR}" \
     --build-arg REACT_PORT="${REACT_PORT}" \
