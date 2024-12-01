@@ -1,0 +1,23 @@
+---
+title: "Labs"
+---
+::: {.card}
+## PRA 1
+Publishing and Managing **Quarto** Documentation.
+:::
+
+::: {.card}
+## PRA 2
+Automating Quarto Documentation Publishing with **GitHub Actions**.
+:::
+
+::: {.card}
+## PRA 3
+Automating Local and Remote Quarto Publishing with **Bash**.
+:::
+
+::: {.card}
+## PRA 4
+**Docker** Setup and Containerization for **Spring Boot** and **React** Applications.
+:::
+

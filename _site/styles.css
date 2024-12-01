@@ -1,0 +1,49 @@
+/* Card Container */
+.card {
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
+  padding: 16px; /* Inner padding */
+  background-color: #ffffff; /* White background */
+  transition: transform 0.2s, box-shadow 0.2s; /* Animation for hover effect */
+  overflow: hidden; /* Prevent content overflow */
+  margin-bottom:25px;
+}
+
+/* Card Title */
+.card .card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333333; /* Darker text color */
+}
+
+/* Card Content */
+.card .card-content {
+  font-size: 1rem;
+  color: #555555; /* Neutral text color */
+  line-height: 1.5;
+}
+
+/* Card Footer (optional) */
+.card .card-footer {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #777777; /* Lighter text for the footer */
+  text-align: right;
+}
+
+/* Hover Effect */
+.card:hover {
+  transform: scale(1.02); /* Slight enlargement */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+}
+
+/* Responsive Cards */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Flexible grid */
+  gap: 16px; /* Space between cards */
+  margin: 20px 0; /* Top and bottom margin for the container */
+}
+

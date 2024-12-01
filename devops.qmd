@@ -1,0 +1,17 @@
+```{mermaid}
+graph TD
+    A[Code] --> B[Build]
+    B --> C[Test]
+    C --> D[Release]
+    D --> E[Deploy]
+    E --> F[Operate]
+    F --> G[Monitor]
+    G --> A
+
+    subgraph CI/CD Pipeline
+        B --> C --> D --> E
+    end
+
+    subgraph Continuous Feedback
+        F --> G --> A
+    end

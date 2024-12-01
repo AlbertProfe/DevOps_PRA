@@ -1,0 +1,37 @@
+# What is Quarto?
+
+Quarto is a powerful **publishing framework** that extends **Markdown**, enabling you to create dynamic web projects, including blogs, documentation sites, dashboards, and more. Using Markdown in Quarto, you can integrate text, code, and visualizations in a unified way.
+
+## Key Features of Quarto Web Projects
+
+1.  ***Create Static and Dynamic Content***:
+
+-   Write simple Markdown for text and media.
+-   Embed interactive visualizations and dynamic outputs.
+
+2.  ***Integrate Code and Data***:
+
+-   Execute and embed results from R, Python, Julia, or Observable JavaScript.
+
+3.  ***Custom Layouts and Themes***:
+
+-   Use prebuilt themes or customize them using YAML configuration.
+
+4.  ***Include Advanced Features***:
+
+-   Table of contents, cross-references, citations, and footnotes.
+
+5.  ***Build Full Websites***:
+
+-   Link multiple pages, add navigation menus, and deploy to platforms like GitHub Pages, Netlify, or Vercel.
+
+{{< video https://www.youtube.com/watch?v=_f3latmOhew&t=34s >}}
+
+## Summary
+
+With Quarto, you can:
+
+-   Write content-rich Markdown documents.
+-   Embed executable code blocks for visualizations.
+-   Create custom-styled websites with menus and themes.
+-   Add interactive media and rich outputs.

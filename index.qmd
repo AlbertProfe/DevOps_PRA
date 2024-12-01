@@ -1,0 +1,67 @@
+---
+title: "DevOps Curs"
+subtitle: CIFO La Violeta 2024
+author: xavier
+date: "11/27/2024"
+date-modified: last-modified
+editor: visual
+date-format: full
+toc: true
+number-sections: false
+format: html
+---
+
+# DevOps
+
+**DevOps** is a set of practices, tools, and cultural philosophies that aim to bridge the gap between **software development (Dev)** and **IT operations (Ops)** teams. The goal is to improve collaboration, automate workflows, and deliver software faster and more reliably.
+
+A typical **DevOps pipeline**, including stages like code, build, test, release, deploy, operate and monitor:
+
+```{mermaid}
+graph TD
+    A[Code] --> B[Build]
+    B --> C[Test]
+    C --> D[Release]
+    D --> E[Deploy]
+    E --> F[Operate]
+    F --> G[Monitor]
+    G --> A
+
+    subgraph CI/CD Pipeline
+        B --> C --> D --> E
+    end
+
+    subgraph Continuous Feedback
+        F --> G --> A
+    end
+```
+
+### **How This Diagram Works**
+
+-   **Stages**: The nodes represent stages in the DevOps lifecycle.
+    -   **Code**: Writing the codebase.
+    -   **Build**: Compiling the application or packaging it into a container (e.g., Docker).
+    -   **Test**: Automated testing to ensure quality.
+    -   **Release**: Preparing the software for deployment.
+    -   **Deploy**: Deploying to production or staging environments.
+    -   **Operate**: Running the software in a live environment.
+    -   **Monitor**: Observing performance, collecting logs, and identifying issues.
+
+## Key Principles:
+
+-   **Collaboration**: Developers and operations teams work together throughout the software lifecycle.
+-   **Automation**: Automating tasks like testing, integration, and deployment to increase efficiency.
+-   **Continuous Processes**:
+    -   **Continuous Integration (CI)**: Frequently merging code changes into a shared repository.
+    -   **Continuous Delivery/Deployment (CD)**: Automating the release process to deploy changes quickly.
+-   **Monitoring and Feedback**: Using metrics and logs to continuously improve system performance and reliability.
+
+## Benefits:
+
+-   Faster delivery of updates and features.
+-   Improved system stability and quality.
+-   Greater responsiveness to customer needs and market demands.
+
+------------------------------------------------------------------------
+
+![A DevOps pipeline](images/devops1.png)

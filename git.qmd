@@ -1,0 +1,43 @@
+# What is Git?
+Git is a free, open-source **version control system** used by developers to manage changes in their projects' files and collaborate effectively. It allows you to track changes, revert to earlier versions, and work on different features simultaneously without losing progress.
+
+::: callout
+Git is essential for modern development workflows and is widely used in open-source and commercial projects.
+:::
+
+## Key Concepts of Git
+1. **Version Control**:
++ Tracks changes in files over time.
++ Allows you to revert to earlier versions if needed.
+
+2. **Repository (Repo)**:
++ A project folder that Git is tracking.
++ Contains all project files and a hidden .git folder where Git keeps its data.
+
+3. **Commits**:
++ Snapshots of changes made to the files in the repository.
++ A commit represents a "checkpoint" you can return to.
+
+4. **Branching**:
++ Allows you to create a separate line of development.
++ Useful for working on new features without affecting the main project.
+
+5. **Merging**:
++ Combines changes from different branches into one.
+
+6. **Remote Repositories**:
++ Git works locally, but you can sync changes with remote repositories (e.g., on platforms like GitHub, GitLab, or Bitbucket) to collaborate with others.
+
+## Basic Git Workflow
+- **Initialize a Repository**: Start version control for a folder.
+- **Track Changes**: Add files to Git's tracking system.
+- **Commit Changes**: Save a snapshot of the changes.
+- **Push to Remote**: Share changes with a remote repository (e.g., GitHub).
+- **Pull Updates**: Get the latest changes from the remote repository.
+
+## Why Use Git?
+- **Collaboration**: Multiple people can work on the same project without conflicts.
+- **Backup**: Your work is saved locally and on remote repositories.
+- **Version History**: Track all changes and revert to any version if needed.
+
+{{< video https://www.youtube.com/watch?v=e9lnsKot_SQ >}}

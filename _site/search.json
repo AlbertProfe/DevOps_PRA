@@ -1,0 +1,212 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DevOps Curs",
+    "section": "",
+    "text": "DevOps is a set of practices, tools, and cultural philosophies that aim to bridge the gap between software development (Dev) and IT operations (Ops) teams. The goal is to improve collaboration, automate workflows, and deliver software faster and more reliably.\nA typical DevOps pipeline, including stages like code, build, test, release, deploy, operate and monitor:\n\n\n\n\n\ngraph TD\n    A[Code] --&gt; B[Build]\n    B --&gt; C[Test]\n    C --&gt; D[Release]\n    D --&gt; E[Deploy]\n    E --&gt; F[Operate]\n    F --&gt; G[Monitor]\n    G --&gt; A\n\n    subgraph CI/CD Pipeline\n        B --&gt; C --&gt; D --&gt; E\n    end\n\n    subgraph Continuous Feedback\n        F --&gt; G --&gt; A\n    end\n\n\n\n\n\n\n\n\n\nStages: The nodes represent stages in the DevOps lifecycle.\n\nCode: Writing the codebase.\nBuild: Compiling the application or packaging it into a container (e.g., Docker).\nTest: Automated testing to ensure quality.\nRelease: Preparing the software for deployment.\nDeploy: Deploying to production or staging environments.\nOperate: Running the software in a live environment.\nMonitor: Observing performance, collecting logs, and identifying issues.\n\n\n\n\n\n\nCollaboration: Developers and operations teams work together throughout the software lifecycle.\nAutomation: Automating tasks like testing, integration, and deployment to increase efficiency.\nContinuous Processes:\n\nContinuous Integration (CI): Frequently merging code changes into a shared repository.\nContinuous Delivery/Deployment (CD): Automating the release process to deploy changes quickly.\n\nMonitoring and Feedback: Using metrics and logs to continuously improve system performance and reliability.\n\n\n\n\n\nFaster delivery of updates and features.\nImproved system stability and quality.\nGreater responsiveness to customer needs and market demands.\n\n\n\n\n\nA DevOps pipeline"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "index.html#key-features-of-quarto-web-projects",
+    "href": "index.html#key-features-of-quarto-web-projects",
+    "title": "DevOps Curs",
+    "section": "",
+    "text": "Create Static and Dynamic Content:\n\n\nWrite simple Markdown for text and media.\nEmbed interactive visualizations and dynamic outputs.\n\n\nIntegrate Code and Data:\n\n\nExecute and embed results from R, Python, Julia, or Observable JavaScript.\n\n\nCustom Layouts and Themes:\n\n\nUse prebuilt themes or customize them using YAML configuration.\n\n\nInclude Advanced Features:\n\n\nTable of contents, cross-references, citations, and footnotes.\n\n\nBuild Full Websites:\n\n\nLink multiple pages, add navigation menus, and deploy to platforms like GitHub Pages, Netlify, or Vercel."
+  },
+  {
+    "objectID": "index.html#summary",
+    "href": "index.html#summary",
+    "title": "DevOps Curs",
+    "section": "",
+    "text": "With Quarto, you can:\n\nWrite content-rich Markdown documents.\nEmbed executable code blocks for visualizations.\nCreate custom-styled websites with menus and themes.\nAdd interactive media and rich outputs."
+  },
+  {
+    "objectID": "git.html",
+    "href": "git.html",
+    "title": "Git",
+    "section": "",
+    "text": "Git is a free, open-source version control system used by developers to manage changes in their projects’ files and collaborate effectively. It allows you to track changes, revert to earlier versions, and work on different features simultaneously without losing progress.\n\n\n\n\n\n\nGit is essential for modern development workflows and is widely used in open-source and commercial projects.\n\n\n\n\n\n\nVersion Control:\n\n\nTracks changes in files over time.\nAllows you to revert to earlier versions if needed.\n\n\nRepository (Repo):\n\n\nA project folder that Git is tracking.\nContains all project files and a hidden .git folder where Git keeps its data.\n\n\nCommits:\n\n\nSnapshots of changes made to the files in the repository.\nA commit represents a “checkpoint” you can return to.\n\n\nBranching:\n\n\nAllows you to create a separate line of development.\nUseful for working on new features without affecting the main project.\n\n\nMerging:\n\n\nCombines changes from different branches into one.\n\n\nRemote Repositories:\n\n\nGit works locally, but you can sync changes with remote repositories (e.g., on platforms like GitHub, GitLab, or Bitbucket) to collaborate with others.\n\n\n\n\n\nInitialize a Repository: Start version control for a folder.\nTrack Changes: Add files to Git’s tracking system.\nCommit Changes: Save a snapshot of the changes.\nPush to Remote: Share changes with a remote repository (e.g., GitHub).\nPull Updates: Get the latest changes from the remote repository.\n\n\n\n\n\nCollaboration: Multiple people can work on the same project without conflicts.\nBackup: Your work is saved locally and on remote repositories.\nVersion History: Track all changes and revert to any version if needed."
+  },
+  {
+    "objectID": "git.html#key-concepts-of-git",
+    "href": "git.html#key-concepts-of-git",
+    "title": "Git",
+    "section": "",
+    "text": "Version Control:\n\n\nTracks changes in files over time.\nAllows you to revert to earlier versions if needed.\n\n\nRepository (Repo):\n\n\nA project folder that Git is tracking.\nContains all project files and a hidden .git folder where Git keeps its data.\n\n\nCommits:\n\n\nSnapshots of changes made to the files in the repository.\nA commit represents a “checkpoint” you can return to.\n\n\nBranching:\n\n\nAllows you to create a separate line of development.\nUseful for working on new features without affecting the main project.\n\n\nMerging:\n\n\nCombines changes from different branches into one.\n\n\nRemote Repositories:\n\n\nGit works locally, but you can sync changes with remote repositories (e.g., on platforms like GitHub, GitLab, or Bitbucket) to collaborate with others."
+  },
+  {
+    "objectID": "git.html#basic-git-workflow",
+    "href": "git.html#basic-git-workflow",
+    "title": "Git",
+    "section": "",
+    "text": "Initialize a Repository: Start version control for a folder.\nTrack Changes: Add files to Git’s tracking system.\nCommit Changes: Save a snapshot of the changes.\nPush to Remote: Share changes with a remote repository (e.g., GitHub).\nPull Updates: Get the latest changes from the remote repository."
+  },
+  {
+    "objectID": "git.html#why-use-git",
+    "href": "git.html#why-use-git",
+    "title": "Git",
+    "section": "",
+    "text": "Collaboration: Multiple people can work on the same project without conflicts.\nBackup: Your work is saved locally and on remote repositories.\nVersion History: Track all changes and revert to any version if needed."
+  },
+  {
+    "objectID": "about.html#card-1",
+    "href": "about.html#card-1",
+    "title": "About",
+    "section": "Card 1",
+    "text": "Card 1\nThis is the first card."
+  },
+  {
+    "objectID": "about.html#card-2",
+    "href": "about.html#card-2",
+    "title": "About",
+    "section": "Card 2",
+    "text": "Card 2\nThis is the second card."
+  },
+  {
+    "objectID": "about.html#card-3",
+    "href": "about.html#card-3",
+    "title": "About",
+    "section": "Card 3",
+    "text": "Card 3\nThis is the third card."
+  },
+  {
+    "objectID": "about.html#lab-2",
+    "href": "about.html#lab-2",
+    "title": "About",
+    "section": "LAB 2",
+    "text": "LAB 2\nThis is the first card."
+  },
+  {
+    "objectID": "about.html#lab-3",
+    "href": "about.html#lab-3",
+    "title": "About",
+    "section": "LAB 3",
+    "text": "LAB 3\nThis is the first card."
+  },
+  {
+    "objectID": "about.html#lab-1",
+    "href": "about.html#lab-1",
+    "title": "About",
+    "section": "LAB 1",
+    "text": "LAB 1\nThis is the first card."
+  },
+  {
+    "objectID": "about.html#pra-1",
+    "href": "about.html#pra-1",
+    "title": "About",
+    "section": "PRA 1",
+    "text": "PRA 1\nPublishing and Managing Quarto Documentation."
+  },
+  {
+    "objectID": "about.html#pra-2",
+    "href": "about.html#pra-2",
+    "title": "About",
+    "section": "PRA 2",
+    "text": "PRA 2\nAutomating Quarto Documentation Publishing with GitHub Actions."
+  },
+  {
+    "objectID": "about.html#pra-3",
+    "href": "about.html#pra-3",
+    "title": "About",
+    "section": "PRA 3",
+    "text": "PRA 3\nAutomating Local and Remote Quarto Publishing with Bash."
+  },
+  {
+    "objectID": "about.html#pra-4",
+    "href": "about.html#pra-4",
+    "title": "About",
+    "section": "PRA 4",
+    "text": "PRA 4\nDocker Setup and Containerization for Spring Boot and React Applications."
+  },
+  {
+    "objectID": "prac.html",
+    "href": "prac.html",
+    "title": "Labs",
+    "section": "",
+    "text": "Publishing and Managing Quarto Documentation."
+  },
+  {
+    "objectID": "prac.html#pra-1",
+    "href": "prac.html#pra-1",
+    "title": "Labs",
+    "section": "",
+    "text": "Publishing and Managing Quarto Documentation."
+  },
+  {
+    "objectID": "prac.html#pra-2",
+    "href": "prac.html#pra-2",
+    "title": "Labs",
+    "section": "PRA 2",
+    "text": "PRA 2\nAutomating Quarto Documentation Publishing with GitHub Actions."
+  },
+  {
+    "objectID": "prac.html#pra-3",
+    "href": "prac.html#pra-3",
+    "title": "Labs",
+    "section": "PRA 3",
+    "text": "PRA 3\nAutomating Local and Remote Quarto Publishing with Bash."
+  },
+  {
+    "objectID": "prac.html#pra-4",
+    "href": "prac.html#pra-4",
+    "title": "Labs",
+    "section": "PRA 4",
+    "text": "PRA 4\nDocker Setup and Containerization for Spring Boot and React Applications."
+  },
+  {
+    "objectID": "devops.html",
+    "href": "devops.html",
+    "title": "xavier-devops",
+    "section": "",
+    "text": "graph TD A[Code] –&gt; B[Build] B –&gt; C[Test] C –&gt; D[Release] D –&gt; E[Deploy] E –&gt; F[Operate] F –&gt; G[Monitor] G –&gt; A\nsubgraph CI/CD Pipeline\n    B --&gt; C --&gt; D --&gt; E\nend\n\nsubgraph Continuous Feedback\n    F --&gt; G --&gt; A\nend"
+  },
+  {
+    "objectID": "quarto.html",
+    "href": "quarto.html",
+    "title": "Quarto",
+    "section": "",
+    "text": "Quarto is a powerful publishing framework that extends Markdown, enabling you to create dynamic web projects, including blogs, documentation sites, dashboards, and more. Using Markdown in Quarto, you can integrate text, code, and visualizations in a unified way.\n\n\n\nCreate Static and Dynamic Content:\n\n\nWrite simple Markdown for text and media.\nEmbed interactive visualizations and dynamic outputs.\n\n\nIntegrate Code and Data:\n\n\nExecute and embed results from R, Python, Julia, or Observable JavaScript.\n\n\nCustom Layouts and Themes:\n\n\nUse prebuilt themes or customize them using YAML configuration.\n\n\nInclude Advanced Features:\n\n\nTable of contents, cross-references, citations, and footnotes.\n\n\nBuild Full Websites:\n\n\nLink multiple pages, add navigation menus, and deploy to platforms like GitHub Pages, Netlify, or Vercel.\n\n\n\n\n\nWith Quarto, you can:\n\nWrite content-rich Markdown documents.\nEmbed executable code blocks for visualizations.\nCreate custom-styled websites with menus and themes.\nAdd interactive media and rich outputs."
+  },
+  {
+    "objectID": "quarto.html#key-features-of-quarto-web-projects",
+    "href": "quarto.html#key-features-of-quarto-web-projects",
+    "title": "Quarto",
+    "section": "",
+    "text": "Create Static and Dynamic Content:\n\n\nWrite simple Markdown for text and media.\nEmbed interactive visualizations and dynamic outputs.\n\n\nIntegrate Code and Data:\n\n\nExecute and embed results from R, Python, Julia, or Observable JavaScript.\n\n\nCustom Layouts and Themes:\n\n\nUse prebuilt themes or customize them using YAML configuration.\n\n\nInclude Advanced Features:\n\n\nTable of contents, cross-references, citations, and footnotes.\n\n\nBuild Full Websites:\n\n\nLink multiple pages, add navigation menus, and deploy to platforms like GitHub Pages, Netlify, or Vercel."
+  },
+  {
+    "objectID": "quarto.html#summary",
+    "href": "quarto.html#summary",
+    "title": "Quarto",
+    "section": "",
+    "text": "With Quarto, you can:\n\nWrite content-rich Markdown documents.\nEmbed executable code blocks for visualizations.\nCreate custom-styled websites with menus and themes.\nAdd interactive media and rich outputs."
+  },
+  {
+    "objectID": "index.html#devops",
+    "href": "index.html#devops",
+    "title": "DevOps Curs",
+    "section": "",
+    "text": "graph TD A[Code] –&gt; B[Build] B –&gt; C[Test] C –&gt; D[Release] D –&gt; E[Deploy] E –&gt; F[Operate] F –&gt; G[Monitor] G –&gt; A\nsubgraph CI/CD Pipeline\n    B --&gt; C --&gt; D --&gt; E\nend\n\nsubgraph Continuous Feedback\n    F --&gt; G --&gt; A\nend"
+  },
+  {
+    "objectID": "index.html#key-principles",
+    "href": "index.html#key-principles",
+    "title": "DevOps Curs",
+    "section": "",
+    "text": "Collaboration: Developers and operations teams work together throughout the software lifecycle.\nAutomation: Automating tasks like testing, integration, and deployment to increase efficiency.\nContinuous Processes:\n\nContinuous Integration (CI): Frequently merging code changes into a shared repository.\nContinuous Delivery/Deployment (CD): Automating the release process to deploy changes quickly.\n\nMonitoring and Feedback: Using metrics and logs to continuously improve system performance and reliability."
+  },
+  {
+    "objectID": "index.html#benefits",
+    "href": "index.html#benefits",
+    "title": "DevOps Curs",
+    "section": "",
+    "text": "Faster delivery of updates and features.\nImproved system stability and quality.\nGreater responsiveness to customer needs and market demands.\n\n\n\n\n\nA DevOps pipeline"
+  }
+]

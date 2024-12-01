@@ -1,0 +1,26 @@
+project:
+  type: website
+
+website:
+  title: "xavier-devops"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: quarto.qmd
+        text: Quarto
+      - href: git.qmd
+        text: Git
+      - href: prac.qmd
+        text: Labs
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    mermaid: 
+      theme: neutral
+
+
+
