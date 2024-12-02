@@ -1,0 +1,27 @@
+project:
+  type: website
+
+website:
+  title: "mi-practica-quarto"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+      - href: contact.qmd
+        text: Contact
+
+author: "Alex Cano"
+
+format:
+  html:
+    theme: minty
+    css: styles.css
+    toc: true
+    
+
+editor: visual
+
+extensions:
+  - mermaid
