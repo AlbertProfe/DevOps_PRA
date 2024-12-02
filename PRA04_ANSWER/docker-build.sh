@@ -12,6 +12,7 @@ while IFS== read -r key value; do
     printf -v "$key" %s "$value" && export "$key"
 done <<< "${ENV_VARS_TO_LOAD}"
 
+echo "Building frontend"
 docker build \
     --tag ${REACT_TAG}":${REACT_VER}" \
     --file frontend.Dockerfile \
@@ -19,7 +20,17 @@ docker build \
     --build-arg REACT_DIR="${REACT_DIR}" \
     --build-arg REACT_INTERNAL_PORT="${REACT_INTERNAL_PORT}" \
      .
-
 #    --progress plain \
 # to see execution output like
-# RUN echo $(ls  /usr/share/nginx/html)
+# RUN echo $(ls /usr/share/nginx/html)
+
+echo "Building backend"
+docker build \
+    --tag ${SPRING_TAG}":${SPRING_VER}" \
+    --file backend.Dockerfile \
+    --build-arg MAINTAINER="${MAINTAINER}" \
+    --build-arg SPRING_DIR="${SPRING_DIR}" \
+    --build-arg SPRING_JAR="${SPRING_JAR}" \
+    --build-arg SPRING_PORT="${SPRING_PORT}" \
+    .
+

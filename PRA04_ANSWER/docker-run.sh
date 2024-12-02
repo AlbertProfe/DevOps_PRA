@@ -12,19 +12,20 @@ while IFS== read -r key value; do
     printf -v "$key" %s "$value" && export "$key"
 done <<< "${ENV_VARS_TO_LOAD}"
 
-docker rm backend
+docker rm backend 2> /dev/null
 docker rm frontend
 
 docker run -d \
     --publish ${SPRING_PORT}:${SPRING_PORT} \
     --name backend \
-    ${SPRING_TAG}":${SPRING_VER}"
+    "${SPRING_TAG}":"${SPRING_VER}"
 
 docker run -d \
-    --publish 90:${REACT_PORT} \
+    --publish ${REACT_EXTERNAL_PORT}:${REACT_INTERNAL_PORT} \
     --name frontend \
-    ${REACT_TAG}":${REACT_VER}"
+    "${REACT_TAG}":"${REACT_VER}"
 
 echo "backend and frontend running. To kill them use"
-echo "docker kill backend"
-echo "docker kill frontend"
+echo -e "\tdocker kill backend"
+echo -e "\tdocker kill frontend"
+echo -e "\tFrontend access: http://localhost:${REACT_EXTERNAL_PORT}/"
