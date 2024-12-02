@@ -6,9 +6,8 @@ I created scripts to automate all the process using .env variables to:
 - prepare resources to create both dockers: `copy-resources-sh`
     - backend
     - frontend
-- create backend docker: `docker-build-backend.sh`
+- create backend and frontend dockers: `docker-build.sh`
     Replaced `openjdk:21-jdk-slim` by `bellsoft/liberica-openjdk-alpine:21` because is lighter and is the official recomendation from [spring.io](https://spring.io/quickstart)
-- create frontend docker: `docker-build-frontend.sh`
 - create `docker-run.sh` to execute both dockers
 
 To load variables from .env file I created some util files:
