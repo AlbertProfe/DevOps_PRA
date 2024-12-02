@@ -1,0 +1,12 @@
+---
+title: "Mermaid Test"
+---
+
+# Test de Mermaid
+
+```mermaid
+graph TD
+    A[Start] --> B{Decision}
+    B -->|Yes| C[Continue]
+    B -->|No| D[Stop]
+```    

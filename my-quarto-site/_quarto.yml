@@ -1,0 +1,31 @@
+project:
+  type: website
+   
+
+website:
+  title: "My-quarto-site"
+ 
+
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: test.qmd
+        text: Test
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    #code-fold: true
+    #diagram: mermaid
+    #head: 
+    #  <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.3/mermaid.min.js"></script>
+    #include-in-header:
+    #  - mermaid-support.html
+    #include-after-body:
+    #  - mermaid.min.js  
+    
+ 
