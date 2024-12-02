@@ -1,0 +1,19 @@
+services:
+  frontend:
+    image: pra04/frontend:1.0
+    ports:
+      - 80:80
+    networks:
+      - front-tier
+      - back-tier
+  
+  backend:
+    image: pra04/backend:1.0
+    expose:
+      - 8080
+    networks:
+      - back-tier
+
+networks:
+  front-tier: {}
+  back-tier: {}
