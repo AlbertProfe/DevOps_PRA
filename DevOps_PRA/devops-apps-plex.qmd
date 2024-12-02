@@ -1,0 +1,35 @@
+---
+title: "Install Plex in Ubuntu"
+---
+
+Bash script to install Plex in Ubuntu:
+
+```
+#!/bin/bash
+
+# Variables
+PLEX_REPO_URL="https://downloads.plex.tv/plex-media-server-new/1.32.5.7349-8f4248874/debian/plexmediaserver_1.32.5.7349-8f4248874_amd64.deb"
+
+# Paso 1: Actualizar e instalar dependencias
+echo "Actualizando el sistema..."
+sudo apt update && sudo apt upgrade -y
+
+# Paso 4: Descargar e instalar Plex Media Server
+echo "Descargando e instalando Plex Media Server..."
+wget -q "$PLEX_REPO_URL" -O plexmediaserver.deb
+sudo dpkg -i plexmediaserver.deb
+
+# Paso 5: Iniciar el servicio de Plex y habilitarlo en el arranque
+echo "Iniciando y habilitando Plex Media Server..."
+sudo systemctl enable plexmediaserver
+sudo systemctl start plexmediaserver
+
+# Confirmación del estado del servicio
+sudo systemctl status plexmediaserver --no-pager
+
+# Limpiar el archivo de instalación
+rm -f plexmediaserver.deb
+
+echo "Instalación de Plex Media Server completa."
+
+```
