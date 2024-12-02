@@ -1,0 +1,16 @@
+---
+title: "Definition"
+---
+
+
+# Definición de Quarto
+
+Es un motor CLI de publicación de páginas webs (entre otros formatos) utilizando de origen documentos `markdown`. Utiliza `git`, `github` y `github pages` y `git actions`  
+
+Keywords:
+
+- engine
+- markdown `.md`
+- publicación
+- git
+- automatización
