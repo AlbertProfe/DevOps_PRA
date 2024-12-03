@@ -91,3 +91,8 @@ To use the script, run it with a commit message as an argument:
 - Successful automation of local git operations and Quarto publishing.
 
 By completing this exercise, you will have created a powerful tool to streamline your Quarto documentation <mark>workflow</mark>, **automating both local and remote operations** while maintaining a log of all actions performed.
+
+### MF03-PRA03
+Links:
+<https://github.com/emiralya8/Pract01Quarto/commits/gh-pages/>
+<https://github.com/emiralya8/Pract01Quarto/commit/0f4559b6ea388b4557d5edc6ab307b10fdb5fda7>
