@@ -1,0 +1,187 @@
+---
+title: "my-quarto-site"
+---
+
+
+::: {.callout-warning}
+This is an important note.
+:::
+
+```{mermaid}
+  graph LR
+      A[Client] --> B[Load Balancer]
+      B --> C[Server1]
+      B --> D[Server2]
+```
+
+# Que hacemos con Order?
+
+Tenemos una clase `Order` que es una clase normal, de la que deriban 3 clases `Order`: `TakeAwayOrder` `EatInOrderRestaurant` y `ShippingOrder`. Entonces teniendo en cuenta la futura escalabilidad, la eficiencia y la mantenibilidad del proyecto deberiamos barajar varias opciones para sintetizar la clase order y declararla de la mejor forma posible.
+
+1. Tendriamos la opción de declararla como una clase abstracta.
+
+2. Tendriamos la opción de declararla como una interfaz
+
+3. Tendriamos la opción de dividirla y crear una interfaz y una clase abstracta
+
+4. Implementar la opción de dejarla como clase normal y para que no escale hacia abajo y crear seals.
+
+5. Impelentar records.
+
+Ahora bien, en que posibles casos nos iria mejor una opción u otra? Pues vamos a descubrirlo.
+
+## 1. Declarar `Order` como una **clase abstracta**
+
+- **Cuándo lo usariamos**: Si `Order` tiene comportamiento o atributos comunes que sus subclases necesitan (como métodos o atributos compartidos), una clase abstracta es buena opción. Esto también asegura que `Order` no se pueda instanciar directamente, obligando a usar una de sus subclases.
+
+- **Ventajas**:
+  
+  - Puedes implementar métodos compartidos que serán heredados por las subclases.
+  - Permite tener código común para evitar duplicación.
+  - Facilita la escalabilidad, ya que puedes añadir métodos o atributos comunes a las órdenes en una sola clase.
+
+- **Desventajas**:
+  
+  - Java solo permite herencia simple, así que si una subclase necesita heredar de otra clase, esto limitaría su flexibilidad.
+    
+    **Ejemplo:** *Imagina que quieres crear una clase `OnlineOrder` que herede tanto de `Order` (para obtener todos los métodos de pedido) como de otra clase `Trackable` que tenga lógica de rastreo.*
+    
+    *En este ejemplo, **Java no permite heredar de ambas clases `Order` y `Trackable` al mismo tiempo**. Esto limita la flexibilidad, ya que no puedes reutilizar la funcionalidad de `Trackable` en `OnlineOrder` a través de la herencia múltiple.*
+  - Puede no ser la mejor opción si tienes muchas subclases específicas y muy diferentes entre sí, ya que se podría perder claridad al tratar de abarcar demasiado en `Order`.
+
+--- 
+
+## 2. Declarar `Order` como una **interfaz**
+
+- **Cuándo la usariamos**: Si `Order` no necesita guardar información específica (como variables o datos compartidos entre sus subclases) ni realizar tareas complejas, y solo queremos que actúe como una “lista de instrucciones” para decirle a cada tipo de orden qué métodos debe tener, una interfaz es la mejor opción.
+  
+  En otras palabras, una interfaz `Order` sirve para **definir qué métodos** deben tener todas las órdenes (como `procesarPedido()` o `cancelarPedido()`), **sin implementar** cómo deben funcionar esos métodos.
+
+- **Ventajas**:
+  
+  - Las subclases pueden implementar múltiples interfaces, dándote más flexibilidad.
+  - Buena opción si `Order` define solo comportamientos (métodos) y no necesita almacenar datos o lógica compartida.
+
+- **Desventajas**:
+  
+  - Las interfaces no pueden tener variables de instancia (aunque Java permite métodos por defecto), así que cualquier lógica común tendrá que implementarse en cada subclase o en una clase de utilidad.
+  - Cuando usas una **interfaz** en lugar de una clase abstracta, no puedes implementar directamente ningún método con lógica común dentro de la interfaz (solo puedes definir el método). Esto significa que, si todas las subclases necesitan la misma lógica, cada una tiene que **implementar esa lógica de manera repetida**.
+    
+    ### Ejemplo para entenderlo
+    
+    Imagina que tienes una interfaz `Order` con un método `calculateTotal()` que todas las órdenes deben tener, y todas las subclases (`TakeAwayOrder`, `EatInOrderRestaurant`, `ShippingOrder`) necesitan calcular el total de la misma manera. Si `Order` es una interfaz, **cada subclase tiene que implementar `calculateTotal()`** con la misma lógica.
+    
+    ### ¿Por qué es menos eficiente?
+    1. **Duplicación de código**: La lógica de `calculateTotal()` está repetida en cada subclase, lo que significa más código a mantener. Si necesitas cambiar la lógica de cálculo, tendrías que actualizarla en todas las subclases, lo cual es propenso a errores.
+    
+    2. **Mayor consumo de memoria y procesamiento**: Cada subclase tiene su propia copia del método, lo cual consume más memoria. Además, si muchas subclases ejecutan la misma lógica por separado, se genera una pequeña sobrecarga en rendimiento.
+
+--- 
+
+## 3. Dividir y crear una **interfaz y una clase abstracta**
+
+- **Cuándo lo usarlamos**: Si tienes una clase `Order` que necesita:
+  
+  1. **Lógica común** (como métodos que todas las órdenes necesitan y que funcionan de la misma manera para todas).
+  2. **Métodos específicos** que cada subclase debe implementar a su manera.
+  
+  Entonces puedes usar **una interfaz y una clase abstracta juntas**.
+  
+  ### Cómo funciona este enfoque
+  
+  - **Interfaz**: Define qué métodos debe tener cada tipo de `Order`, sin decir cómo deben funcionar esos métodos. Solo establece la “lista de tareas” que cada orden debe cumplir.
+  
+  - **Clase abstracta**: Implementa la lógica común que todas las órdenes comparten y guarda los atributos o datos que serán iguales para todas. También puede “heredar” los métodos de la interfaz, de modo que las subclases tengan la “lista de tareas” de la interfaz más la lógica común.
+  
+  ### Ejemplo simple
+  
+  Supón que tienes una interfaz `OrderActions` y una clase abstracta `OrderBase`:
+  
+  1. **Interfaz `OrderActions`**: Define los métodos que cada orden debe tener, como `calculateTotal()`.
+  2. **Clase abstracta `OrderBase`**: Contiene la lógica que será igual para todas las órdenes y guarda datos comunes (como el precio). Además, usa la interfaz para asegurarse de que cada subclase implemente los métodos definidos en `OrderActions`.
+     
+     ```java
+     public interface OrderActions {
+         double calculateTotal();  // "Todas las orders tendran este método"
+     }
+     
+     // La clase abstracta implementa lógica común y guarda datos
+     public abstract class OrderBase implements OrderActions {
+         private double basePrice;
+     
+         public OrderBase(double basePrice) {
+             this.basePrice = basePrice;
+         }
+     
+         public double getBasePrice() {
+             return basePrice;
+         }
+     }
+     
+     // Subclase TakeAwayOrder
+     public class TakeAwayOrder extends OrderBase {
+         public TakeAwayOrder(double basePrice) {
+             super(basePrice);
+         }
+     
+         @Override
+         public double calculateTotal() {
+             return getBasePrice() * 1.1; // Lógica específica para calcular total
+         }
+     }
+     ```
+
+- **Ventajas**:
+  
+  - Combina la flexibilidad de las interfaces con la reutilización de la clase abstracta.
+  - Permite separar los métodos abstractos (definidos en la interfaz) de la implementación concreta (en la clase abstracta).
+  - Esto facilita la escalabilidad, ya que puedes añadir más interfaces según cambien los requerimientos.
+
+- **Desventajas**:
+  
+  - Complejidad adicional, ya que ahora hay dos entidades para representar `Order`.
+  - Puede ser excesivo si `Order` no tiene muchos métodos ni atributos compartidos.
+
+--- 
+
+## 4. Dejarla como **clase normal y sellarla** (sealed)
+
+- **Cuándo lo usariamos**: Si quieres que `Order` sea extensible solo a un conjunto específico de subclases (como `TakeAwayOrder`, `EatInOrderRestaurant`, y `ShippingOrder`), una clase sellada es una opción excelente en Java 17+.
+
+- **Ventajas**:
+  
+  - Permite restringir qué subclases pueden derivarse de `Order`, lo cual puede ser útil para la escalabilidad y la seguridad del diseño.
+  - Mantiene `Order` como una clase concreta, evitando instancias fuera del conjunto limitado de subclases especificadas.
+  - Facilita la mantenibilidad, ya que no necesitas preocuparte por la introducción de nuevas subclases inesperadas.
+
+- **Desventajas**:
+  
+  - Limita la flexibilidad para futuras extensiones; si en el futuro necesitas más subclases, la clase `Order` tendrá que modificarse.
+  - Solo compatible con versiones modernas de Java.
+
+--- 
+
+## 5. Implementar **records**
+
+- **Cuándo lo usariamos**: Si `Order` es principalmente un contenedor de datos sin lógica o comportamiento, los records pueden ser una opción sencilla. Sería una buena opción si `Order` solo tiene campos y métodos simples para acceder a ellos, sin necesidad de personalizar su comportamiento.
+
+- **Ventajas**:
+  
+  - Sintaxis simple y menor código, ya que los records manejan automáticamente `equals`, `hashCode`, y `toString`.
+  - Inmutabilidad por defecto, lo que es útil si no quieres que `Order` cambie una vez creado.
+
+- **Desventajas**:
+  
+  - Limitado en términos de funcionalidad: los records están diseñados para ser simples contenedores de datos, por lo que no se pueden añadir comportamientos complejos.
+  - Puede no ser una buena opción si `Order` necesita tener subclases con diferentes comportamientos.
+
+---
+
+## Resumen rápido
+
+- **Clase abstracta**: Usar si `Order` tiene lógica compartida entre subclases.
+- **Interfaz**: Usar si `Order` solo define métodos sin necesidad de lógica compartida.
+- **Interfaz + clase abstracta**: Usar para combinar flexibilidad y reutilización de código compartido.
+- **Clase sellada**: Usar si solo quieres permitir un conjunto específico de subclases.
+- **Records**: Usar si `Order` es un simple contenedor de datos sin lógica ni subclases adicionales.
+
