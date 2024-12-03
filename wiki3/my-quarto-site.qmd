@@ -1,0 +1,14 @@
+---
+title: "Pájaros"
+---
+
+## Pájaros locales...
+
+Imágenes de pájaros locales.
+
+![Caption](Orenetes-Sant-Quirze-e1428942933854.webp)
+
+::: callout
+Golondrina volando
+:::
+
