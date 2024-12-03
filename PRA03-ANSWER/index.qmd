@@ -1,0 +1,7 @@
+---
+title: "Automatización de la publicación local y remota de Quarto con Bash
+author: "borizSam"
+---
+# Automatización de la publicación local y remota de Quarto con Bash
+
+[GitHub](https://github.com/borizSam/Proyecto-Dev.git) 
