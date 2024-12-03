@@ -1,0 +1,54 @@
+project:
+  type: website
+
+website:
+  title: "isaac first quarto"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+      - text: Docs
+        menu:
+          - text: "DevOps Apps Plex"
+            href: devops-apps-plex.qmd
+          - text: "Shared Network Drive"
+            href: devops-apps-shared-network-drive.qmd
+          - text: "Transmission"
+            href: devops-apps-transmission.qmd
+      - href: links.qmd
+        text: Links
+
+    background: secondary
+    style: "floating"
+    search: true
+
+  page-footer:
+    background: secondary
+    left: "[Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)"
+    center: "Avoid pitfalls"
+    right:
+      - icon: github
+        href: https://isaac-diez.github.io/DevOps_PRA
+      - icon: twitter
+        href: https://twitter.com/
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    css: styles.css
+    toc: true
+
+execute:
+  cache: true
+  freeze: true
+
+highlight-style: monokai
+
+editor:
+  render-on-save: true
+  page-navigation: true
+  back-to-top-navigation: true
