@@ -1,0 +1,25 @@
+project:
+  type: website
+
+website:
+  title: "Prueba Quarto"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: definition.qmd
+        text: ¿Qué es Quarto?
+      - href: testing.qmd
+        text: Test
+      - href: about.qmd
+        text: About
+
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+extensions:
+  - mermaid
