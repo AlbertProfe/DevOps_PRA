@@ -1,0 +1,37 @@
+---
+title: "Welcome to My Portfolio"
+author: "Alex"
+output: html_document
+---
+
+# Welcome to My Personal Website
+
+Hello, I'm **Alex**, a passionate **Backend Developer** and **DevOps Engineer**. Welcome to my online space where I share my journey in the world of programming, technology, and cloud solutions.
+
+## Who am I?
+
+I'm deeply focused on building scalable and reliable backend systems, with a strong expertise in DevOps practices. My goal is to create efficient, automated workflows and powerful applications that drive business success.
+
+### What I do:
+
+- **Backend Development**: I specialize in creating robust and scalable server-side applications using Java, Spring Boot, Node.js, and more.
+- **DevOps Engineering**: I automate infrastructure, streamline deployments, and implement continuous integration/continuous delivery (CI/CD) pipelines with tools like Docker, Kubernetes, Jenkins, and AWS.
+
+## Projects
+
+- **[Project 1: Backend System](#)**: A scalable solution for handling large-scale data processing.
+- **[Project 2: CI/CD Pipeline](#)**: A fully automated pipeline for continuous deployment to production.
+
+## Contact Me
+
+Feel free to reach out for collaborations, advice, or just to chat about tech:
+
+- **Email**: [alex@example.com](mailto:alex@example.com)
+- **GitHub**: [github.com/alexkano](https://github.com/alexkano)
+- **LinkedIn**: [linkedin.com/in/alexkano](https://linkedin.com/in/alexkano)
+
+## Let's Build the Future Together!
+
+---
+
+*This page was created with Quarto and designed to showcase my skills and projects. Feel free to explore and connect!*
