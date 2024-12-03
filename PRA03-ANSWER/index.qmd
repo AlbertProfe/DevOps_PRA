@@ -4,5 +4,4 @@ author: "borizSam"
 ---
 # Automatización de la publicación local y remota de Quarto con Bash
 
-
-[click here!](https://github.com/borizSam/Proyecto-Dev.git)
+[GitHub](https://github.com/borizSam/Proyecto-Dev.git) 
