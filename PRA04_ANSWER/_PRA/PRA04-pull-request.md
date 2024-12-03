@@ -24,6 +24,21 @@ To load variables from .env file I created some util files:
     bash util/test-load-env.sh
     ```
 
+I created also `compose.yaml` that uses both docker images created before.  
+To use `docker compose`:  
+
+    ```
+    docker compose up
+
+    # if detached is needed:
+    docker compose up -d
+    # and then to kill dockers:
+    docker kill pra04_answer-backend-1
+    docker kill pra04_answer-frontend-1
+    ```
+
+
+
 ## Screenshots
 
 ### docker build backend
@@ -44,6 +59,9 @@ To load variables from .env file I created some util files:
 ### killing dockers
 ![killing dockers](img/pra04/05-killing-dockers.png)
 
+### running docker compose
+![docker compose running](img/pra04/06-docker-compose-running.png)
+
 
 ## Tasks
 
@@ -54,4 +72,4 @@ To load variables from .env file I created some util files:
 5. [ ] H2 Database Configuration
 6. [ ] Implement Book API with Spring Boot
 7. [x] Consume API with React using Axios
-
+8. [x] docker compose
