@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Load .env
 ENV_VARS_TO_LOAD=$(bash util/clean-env-file.sh .env)
 if [ $? -ne 0 ]; then
     exit 1
@@ -12,17 +13,21 @@ while IFS== read -r key value; do
     printf -v "$key" %s "$value" && export "$key"
 done <<< "${ENV_VARS_TO_LOAD}"
 
-if [ -d "${SPRING_DIR}" ]; then
-    rm -rf "${SPRING_DIR}"
+# create backend dir
+if [ -d "${SPRING_DIR_DESTINATION}" ]; then
+    rm -rf "${SPRING_DIR_DESTINATION}"
 fi
-mkdir -p "${SPRING_DIR}"
-cp ../Resources/SpringBoot_projects/BooksPageable-0.0.4-SNAPSHOT.jar "${SPRING_DIR}"/"${SPRING_JAR}".jar
-echo "Backend resources copied to ${SPRING_DIR}"
+mkdir -p "${SPRING_DIR_DESTINATION}"
+# copy content to backend
+cp "${SPRING_DIR_ORIGIN}"/"${SPRING_JAR}" "${SPRING_DIR_DESTINATION}"/"${SPRING_JAR}"
+echo "Backend resources copied to ${SPRING_DIR_DESTINATION}"
 
-if [ -d "${REACT_DIR}" ]; then
-    rm -rf "${REACT_DIR}"
+# create frontend dir
+if [ -d "${REACT_DIR_DESTINATION}" ]; then
+    rm -rf "${REACT_DIR_DESTINATION}"
 fi
-mkdir -p "${REACT_DIR}"
-tar -xzf ../Resources/React_projects/dist.tar.gz  --strip-components 1 --directory "${REACT_DIR}"
-echo "Frontend resources copied to ${REACT_DIR}"
+mkdir -p "${REACT_DIR_DESTINATION}"
+# copy frontend to backend
+tar -xzf "${REACT_TAR_GZ}" --strip-components 1 --directory "${REACT_DIR_DESTINATION}"
+echo "Frontend resources copied to ${REACT_DIR_DESTINATION}"
 

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Load .env
 ENV_VARS_TO_LOAD=$(bash util/clean-env-file.sh .env)
 if [ $? -ne 0 ]; then
     exit 1
@@ -12,14 +13,17 @@ while IFS== read -r key value; do
     printf -v "$key" %s "$value" && export "$key"
 done <<< "${ENV_VARS_TO_LOAD}"
 
+# delete docker names if they exists
 docker rm backend 2> /dev/null
-docker rm frontend
+docker rm frontend 2> /dev/null
 
+# create backend docker
 docker run -d \
     --publish ${SPRING_PORT}:${SPRING_PORT} \
     --name backend \
     "${SPRING_TAG}":"${SPRING_VER}"
 
+# create frontend docker
 docker run -d \
     --publish ${REACT_EXTERNAL_PORT}:${REACT_INTERNAL_PORT} \
     --name frontend \
