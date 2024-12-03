@@ -1,19 +1,20 @@
 services:
+  backend:
+    image: pra04/backend:1.0
+    ports:
+      - 8080:8080
+    networks:
+      - library-network
+
   frontend:
     image: pra04/frontend:1.0
     ports:
-      - 80:80
+      - 90:80
     networks:
-      - front-tier
-      - back-tier
+      - library-network
+    depends_on:
+      - backend
   
-  backend:
-    image: pra04/backend:1.0
-    expose:
-      - 8080
-    networks:
-      - back-tier
-
 networks:
-  front-tier: {}
-  back-tier: {}
+  library-network:
+    driver: bridge
