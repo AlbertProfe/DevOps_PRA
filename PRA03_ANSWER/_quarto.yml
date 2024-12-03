@@ -1,0 +1,12 @@
+website:
+  title: "myQuartoProj-Bash"
+  back-to-top-navigation: true
+  repo-url: https://github.com/CrHacker7/MyQuartoProj-Bash
+  repo-actions: [edit]
+  repo-branch: master
+  repo-link-target: '_blank'
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
