@@ -1,8 +1,8 @@
 ---
-title: "Automatización de la publicación de documentación de Quarto con GitHub Actions"
+title: "PublishingQuartoDocumentation"
 author: "borizSam"
 ---
-# AutomatingQuartoPublishing
+# My Quarto Project with GitHub Pages
 
 
-[click here!](https://github.com/borizSam/Proyecto-Quarto.git)
+[click here!][click here!](https://github.com/borizSam/Proyecto-Dev.git)
