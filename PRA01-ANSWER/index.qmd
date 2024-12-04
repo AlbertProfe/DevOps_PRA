@@ -1,0 +1,7 @@
+---
+title: "PublishingQuartoDocumentation"
+author: "borizSam"
+---
+# My Quarto Project with GitHub Pages
+
+[click here!](https://github.com/borizSam/Proyecto-Dev.git)
