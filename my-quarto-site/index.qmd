@@ -1,0 +1,28 @@
+---
+title: "My Quarto site"
+---
+
+# Quarto
+
+
+It is a next-generation tool for authoring documents that combines Markdown with code execution in languages like R, Python, and Julia. It is designed for producing high-quality outputs in various formats like HTML and PDF.
+
+
+This is a Quarto website.
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+::: callout
+**Quarto** is an open source tools for scientific and technical publishing.
+:::
+
+# Markdown
+
+Markdown is a plain text format that is designed to be easy to write, and, even more importantly, easy to read.
+
+# Agile
+``` {mermaid}
+graph LR
+    A(Plan) --> B(Execute) --> C(Review) --> D(Reflect) 
+```
+
