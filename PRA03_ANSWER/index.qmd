@@ -1,0 +1,10 @@
+### Práctica 03 con Bash
+
+- [x] 1. Create the Bash Script
+- [x] 2. Add logging output
+- [x] 3. Make the Script Executable
+- [x] 4. Use the Script
+
+![build gh-actions](img/quarto-bash.png)
+
+![!Structure project](img/structure-proj-bash.png)
