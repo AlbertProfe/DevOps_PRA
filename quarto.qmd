@@ -1,0 +1,26 @@
+# MF03-PRA03: Automating Local and Remote Quarto Publishing with Bash
+La web generada amb GitHub Pages: <https://xaviermvives.github.io/quartopage/>
+
+## Objectius
+- crear un bash script per automatitzar operacions locals i remotes a l'hora de publicar documentació amb Quarto
+- tenim un prejecte Quarto en local, quan executem l'script comitejarà els canvis i farà el push al repo remot i publicarà el projecte automaticament amb GitHub Pages
+- també es crearà automàticament un log file amb informació del commit (missatge i hora i data)
+
+## Passos aproximats:
+1. crear a l'arrel un script bash
+2. modificar els permissos d'execució de l'script
+3. fer canvis al projecte
+4. executar per terminal l'script bash passant-li el missatge del commit com a parametre (si no, donarà missatge error)
+5. comprovar el resultat a la web, GitHub Pages i al log file creat
+
+## Explicació general de l'script bash:
+- comprovem que passem un missatge com a parametre amb un condicional
+- definim funció que crea un missatge en un nou file
+- commitegem els canvia amb el parametre passat com a missatge
+- si no pot fer el commit dóna missatge error
+- fem el push a la main del remot i cridem a la funció que crea missatge
+- publiquem a GH Pages 
+
+
+![](/images/resultat.png)
+![](/images/log.png)
