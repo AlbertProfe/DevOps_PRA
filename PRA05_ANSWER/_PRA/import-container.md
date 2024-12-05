@@ -6,10 +6,19 @@ Log in to your remote host, then run the following command to load it to your re
 docker load -i ./jenkins.tar
 ```
 
+se crea la imagen `jenkins-image`
+pero la vamos a renombrar a `pra05/jenkins-image`
+
+```
+docker image tag jenkins-image:latest pra05/jenkins-image:latest
+docker rmi jenkins-image
+```
+
+
 Use docker create to reinitialize your Docker container image with its original run flags from your source machine. For instance, my Nginx Docker container originally had port 80 mapped to my host machine’s port 8080:
 
 ```
-docker create --name jenkins-home -p 9090:8080 -p 50000:50000 jenkins
+docker create --name jenkins-home -p 9090:8080 -p 50000:50000 pra05/jenkins-image
 ```
 
 Run your newly imported Docker container:
@@ -31,7 +40,7 @@ Create a new Docker container using your exported image file:
 ```
 docker create --name jenkins-home \ 
     -v jenkins_home:/var/jenkins_home \
-    -p 9090:8080 -p 50000:50000 jenkins
+    -p 9090:8080 -p 50000:50000 pra05/jenkins-image
 ```
 
 Run the docker-volume.sh script with your original .tar file to load it to your new system’s Docker daemon:
