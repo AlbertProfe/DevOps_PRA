@@ -122,7 +122,6 @@ pipeline {
 }
 ```
 
-https://www.baeldung.com/ops/jenkins-git-branch-selection
 
 
 ## Screenshots
