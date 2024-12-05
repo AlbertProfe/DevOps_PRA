@@ -1,0 +1,41 @@
+---
+title: "Transmission"
+---
+
+Bash script to install Transmission in Ubuntu:
+
+```
+#!/bin/bash
+
+# Configuración del script
+TRANSMISSION_CONFIG_DIR="/etc/transmission-daemon"
+DOWNLOADS_DIR="/mnt/aranisaac/TVShows"
+
+# Instalación de Transmission
+echo "Instalando Transmission..."
+sudo apt update
+sudo apt install -y transmission-cli transmission-common transmission-daemon cifs-utils
+
+#Configuración de Transmission
+echo "Configurando Transmission..."
+
+# Detener el servicio para hacer cambios en la configuración
+sudo systemctl stop transmission-daemon
+
+# Modificar archivo de configuración settings.json
+TRANSMISSION_SETTINGS="$TRANSMISSION_CONFIG_DIR/settings.json"
+sudo sed -i "s|\"download-dir\": \".*\"|\"download-dir\": \"$DOWNLOADS_DIR\"|g" "$TRANSMISSION_SETTINGS"
+sudo sed -i 's/"rpc-authentication-required":.*/"rpc-authentication-required": true,/g' "$TRANSMISSION_SETTINGS"
+sudo sed -i 's/"rpc-username":.*/"rpc-username": "transmission",/g' "$TRANSMISSION_SETTINGS"
+sudo sed -i 's/"rpc-password":.*/"rpc-password": "transmission",/g' "$TRANSMISSION_SETTINGS"
+sudo sed -i 's/"rpc-whitelist-enabled":.*/"rpc-whitelist-enabled": false,/g' "$TRANSMISSION_SETTINGS"
+
+# Cambiar propietario del directorio de descargas
+sudo chown -R debian-transmission:debian-transmission "$DOWNLOADS_DIR"
+
+# Reiniciar Transmission para aplicar la configuración
+sudo systemctl start transmission-daemon
+sudo systemctl enable transmission-daemon
+
+echo "Instalación y configuración de Transmission completadas. Las descargas se guardarán en $DOWNLOADS_DIR."
+```
