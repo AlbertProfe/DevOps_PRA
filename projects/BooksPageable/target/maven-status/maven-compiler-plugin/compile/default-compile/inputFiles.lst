@@ -1,0 +1,8 @@
+/home/alex/projects/BooksPageable/src/main/java/io/company/library/LibraryApplication.java
+/home/alex/projects/BooksPageable/src/main/java/io/company/library/CorsConfig.java
+/home/alex/projects/BooksPageable/src/main/java/io/company/library/BookService.java
+/home/alex/projects/BooksPageable/src/main/java/io/company/library/BookRepository.java
+/home/alex/projects/BooksPageable/src/main/java/io/company/library/Book.java
+/home/alex/projects/BooksPageable/src/main/java/io/company/library/ApplicationCommandRunner.java
+/home/alex/projects/BooksPageable/src/main/java/io/company/library/LibraryRestController.java
+/home/alex/projects/BooksPageable/src/main/java/io/company/library/BookController.java
