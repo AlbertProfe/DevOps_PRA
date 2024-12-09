@@ -225,3 +225,12 @@ Citations:
 [3] https://docs.docker.com/desktop/setup/install/windows-install/
 [4] https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
 [5] https://docs.docker.com/engine/install/
+
+### Desenvolupament MF04-PRA04
+
+[1] Docker Command lines.
+
+- sudo docker network ls
+- 7b987bf1c8b6   books-network   bridge    local
+- sudo docker run -d -p 8080:8080 --network books-network books-api
+- sudo docker run -d -p 5173:80 --network books-network books-frontend
