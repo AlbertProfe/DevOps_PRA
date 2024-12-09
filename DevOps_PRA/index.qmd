@@ -1,0 +1,81 @@
+---
+title: "My 1st Quarto website"
+---
+
+# This is a Quarto website
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+## Introduction  
+
+This is a **sample webpage** written in Markdown. Below, you'll find various sections demonstrating Markdown features. Feel free to modify or replace this content.
+
+## Features of the Page
+
+### Ordered List
+
+1. **Interactive Design**  
+   Your webpage adapts to user inputs.  
+2. **Easy Navigation**  
+   Includes intuitive menus and buttons.  
+3. **Scalable Features**  
+   Expandable with plugins and custom scripts.  
+
+### Unordered List
+
+- **Fast Load Times**  
+  Optimized for quick rendering.  
+- **Mobile-Friendly**  
+  Works seamlessly on all devices.  
+- **Secure**  
+  Protects user data with advanced encryption.
+
+## Call-outs
+
+::: {.callout-note}
+Note that there are five types of callouts, including:
+`note`, `warning`, `important`, `tip`, and `caution`.
+:::
+
+::: {.callout-tip}
+## Tip with Title
+
+This is an example of a callout with a title.
+:::
+
+::: {.callout-caution collapse="true"}
+## Expand To Learn About Collapse
+
+This is an example of a 'folded' caution callout that can be expanded by the user. You can use `collapse="true"` to collapse it by default or `collapse="false"` to make a collapsible callout that is expanded by default.
+:::
+
+# Employee Information
+
+This section contains a table of employee data:
+
+| Name      | Age | Department     | Location       |
+|-----------|-----|----------------|----------------|
+| John Doe  | 30  | Engineering    | New York       |
+| Jane Smith| 25  | Marketing      | London         |
+| Bob Brown | 40  | HR             | San Francisco  |
+| Alice Lee | 29  | Sales          | Tokyo          |
+
+This is the end of the employee information section.
+
+## Images
+
+### Standard Image
+
+![An elephant](https://quarto.org/docs/authoring/elephant.png){.lightbox}
+
+## Mermaid Diagram  
+
+Visualize workflows or processes easily with Mermaid diagrams.
+
+```{mermaid}
+graph TD
+    A[Start] --> B{Decision?}
+    B -->|Yes| C[Proceed]
+    B -->|No| D[Stop]
+    C --> E[End]
+```

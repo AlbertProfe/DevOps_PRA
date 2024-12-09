@@ -1,0 +1,108 @@
+[33mcommit 1d4472f6fb2c06364e7ac19af54f90c990ee114d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mbranchPR04[m[33m, [m[1;31morigin/branchPR03[m[33m, [m[1;32mbranchPR03[m[33m)[m
+Author: isaac <isaac.diez@proton.me>
+Date:   Thu Nov 28 13:20:48 2024 +0100
+
+    6th commit: missing files
+
+[33mcommit 3c0578a8a243f3e07e827d3aa36342ab0ff0471f[m
+Author: isaac <isaac.diez@proton.me>
+Date:   Wed Nov 27 17:47:31 2024 +0100
+
+    5th commit: added logging to the script and devops-git-actios.qmd, 2nd time
+
+[33mcommit 5d92bae55c7eede6ff68a435832923269d443df1[m
+Author: isaac <isaac.diez@proton.me>
+Date:   Wed Nov 27 17:43:45 2024 +0100
+
+    4th commit: added logging to the script and devops-git-actios.qmd
+
+[33mcommit c100a0cabb9d70a91de05c36305c76f6660bfd9f[m
+Author: isaac <isaac.diez@proton.me>
+Date:   Wed Nov 27 17:32:59 2024 +0100
+
+    3rd commit: Merged content of branchPR03 with branchPR01
+
+[33mcommit 4f754cbedcaf5e9604564305f141f845acdcefaa[m
+Merge: 5409654 a7594fd
+Author: isaac <isaac.diez@proton.me>
+Date:   Wed Nov 27 17:26:46 2024 +0100
+
+    Merge branch 'branchPR01' into branchPR03
+
+[33mcommit 5409654bfc51bf03dd0696a2c6ffa143c2a910b8[m
+Author: isaac <isaac.diez@proton.me>
+Date:   Wed Nov 27 13:57:10 2024 +0100
+
+    1st commit: new branchPR03 created for exercise PRA03
+
+[33mcommit a7594fd6d2397ed302bba9f7ea0e21d01ba9ba6c[m[33m ([m[1;31morigin/branchPR01[m[33m, [m[1;32mbranchPR01[m[33m)[m
+Author: isaac <isaac.diez@proton.me>
+Date:   Wed Nov 27 11:49:28 2024 +0100
+
+    8th commit: changed path for quarto files
+
+[33mcommit 72c6a34964d0ab7038c1a5b41707b2a6cdc9fc31[m
+Author: isaac <isaac.diez@proton.me>
+Date:   Wed Nov 27 11:43:41 2024 +0100
+
+    7th commit: modified branch name in publish.yml
+
+[33mcommit f742215ac9c1c9cbb9852806e52c77afdccddafb[m
+Author: isaac <isaac.diez@proton.me>
+Date:   Wed Nov 27 11:38:39 2024 +0100
+
+    6th commit: changed branch in publish.yml to branch01
+
+[33mcommit 7acea8a0079256d30096ca9aab4889484e1c9918[m
+Author: isaac <isaac.diez@proton.me>
+Date:   Wed Nov 27 11:30:56 2024 +0100
+
+    5th commit: added publish.yml for githubActions
+
+[33mcommit 5913aa08348ba5fbafb675ed0c73e0565c171a99[m
+Author: isaac <isaac.diez@proton.me>
+Date:   Wed Nov 27 10:04:20 2024 +0100
+
+    4th commit: minor change to check if git syncs without a glitch
+
+[33mcommit 49897439d97b2315d708ef575ca07b4cdd5ee952[m
+Author: isaac <isaac.diez@proton.me>
+Date:   Wed Nov 27 09:06:15 2024 +0100
+
+    3rd commit: collapsible submenu under docs
+
+[33mcommit 2e2f51ed5361a538854e79de7ffa2ac569e1d89b[m
+Author: isaac <isaac.diez@proton.me>
+Date:   Tue Nov 26 17:15:03 2024 +0100
+
+    2nd Commit: improved structure
+
+[33mcommit 826167afa4b824582f70ee9dede0ca9854b5f215[m
+Author: isaac <isaac.diez@proton.me>
+Date:   Tue Nov 26 16:28:07 2024 +0100
+
+    1st commit: create project and initial files
+
+[33mcommit c7afa2d93166f9a9c98148af1a5e0f166c4fe2b4[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Isaac <isaac.diez@proton.me>
+Date:   Tue Nov 26 16:17:01 2024 +0100
+
+    Delete DevOps_PRA_web directory
+
+[33mcommit bc79d0b98184d8fbd8f008e082a188f4d3aa3ffc[m
+Author: isaac <isaac.diez@proton.me>
+Date:   Tue Nov 26 16:08:59 2024 +0100
+
+    1st Commit: create project and initial files.
+
+[33mcommit fb9c20fabe5692fb1ce5cffcc208296d772114c8[m
+Author: albertprofe <albert@gmail.com>
+Date:   Mon Nov 25 12:58:44 2024 +0100
+
+    MF02-PRA02
+
+[33mcommit 21e97332e1c5f79ca260be03149727da89628099[m
+Author: albertprofe <albert@gmail.com>
+Date:   Mon Nov 25 08:41:35 2024 +0100
+
+    first commit
