@@ -67,10 +67,10 @@ Ya desde la [web de administración de Jenkins](http://localhost:9090/):
     - Maven 3.9.9, con autoinstalador
     - JDK's:
         Con autoinstalador desde url y en el directorio JDK**x**
-        - [JDK 8](https://builds.openlogic.com/downloadJDK/openlogic-openjdk/8u432-b06/openlogic-openjdk-8u432-b06-linux-x64.tar.gz)
-        - [JDK 11](https://builds.openlogic.com/downloadJDK/openlogic-openjdk/11.0.25+9/openlogic-openjdk-11.0.25+9-linux-x64.tar.gz)
-        - [JDK 17](https://builds.openlogic.com/downloadJDK/openlogic-openjdk/17.0.13+11/openlogic-openjdk-17.0.13+11-linux-x64.tar.gz)
-        - [JDK 21](https://builds.openlogic.com/downloadJDK/openlogic-openjdk/21.0.5+11/openlogic-openjdk-21.0.5+11-linux-x64.tar.gz)
+        - [JDK8](https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/tag/jdk8u292-b10) en el directorio `jdk8u292-b10`
+        - [JDK11](https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz) en el directorio `jdk-11.0.2`
+        - [JDK17](https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_linux-x64_bin.tar.gz) en el directorio `jdk-17.0.2`
+        - [JDK21](https://download.java.net/java/GA/jdk21.0.2/f2283984656d49d69e91c558476027ac/13/GPL/openjdk-21.0.2_linux-x64_bin.tar.gz) en el directorio `jdk-21.0.2`
 
 
 Probada app Vaadin para hacer las pruebas de pipeline
