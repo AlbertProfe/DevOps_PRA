@@ -85,42 +85,110 @@ groovy
 ```
 pipeline {
     agent any
+
+    environment {
+        // DOCKERHUB_CREDENTIALS = credentials('dockerhub_id')
+        IMAGE_NAME = 'jcprograms/springconference'
+        IMAGE_TAG = "${BUILD_NUMBER}"
+    }
+
+    tools {
+        maven "MAVEN3"
+        jdk 'JDK17'
+    }
+
     stages {
         stage ('Checking java version') {
             steps {
-                sh "java -version"
+                sh 'java --version'
             }
         }
+        
         stage ('Checking maven version') {
             steps {               
-                sh "mvn -version"
+                sh 'mvn --version'
             }
         }
+        
+        stage ('Checking docker version') {
+            steps {               
+                sh 'docker --version'
+            }
+        }
+        
+        
         stage('Checkout git') {
             steps {
                 // set repository url and branch
                 git branch: 'docker-version', url: 'https://github.com/jc-programs/SpringConference.git'
             }
         }
+
         stage ('build app skiping test') {
             steps {               
-                sh 'mvn clean install -DskipTests=true -Pproduction'
+                sh 'mvn clean package -DskipTests=true -Pproduction'
             }
         }
-        // stage ('docker image build')
-        // {
-        //     steps {
-        //         sh 'mvn dockerfile:build'
-        //     }
-        //   }
-        // stage ('docker image push to Docker Hub') {
-        //     steps {               
-        //             sh 'mvn dockerfile:push'                          
-        //     }
-        // }
+
+        stage('Archive .jar') {
+            steps {
+                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+            }
+        }
+        
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    docker.build("${IMAGE_NAME}:${IMAGE_TAG}")
+                }
+            }
+        }
+ 
+ 
+        stage('Login to Docker Hub') {
+            steps {
+                script {
+                    docker.withRegistry('', 'dockerhub_id') {
+                        // This block will log in using the credentials specified
+                        sh 'echo loged in docker'
+                    }
+                }
+            }
+        }
+
+        stage('Push Image to Docker Hub') {
+            steps {
+                script {
+                    docker.withRegistry('', 'dockerhub_id') {
+                        docker.image("${IMAGE_NAME}:${IMAGE_TAG}").push()
+                        docker.image("${IMAGE_NAME}:${IMAGE_TAG}").push('latest')
+                    }
+                }
+            }
+        }
     }
-}
+ 
+    post {
+        always {
+            sh "docker rmi ${IMAGE_NAME}:${IMAGE_TAG}"
+            sh "docker rmi ${IMAGE_NAME}:latest"
+        }
+    }
+}```
+
+## Creando la imagen docker con el compilado
+
+Añado en el directorio raíz del proyecto java el fichero `Dockerfile`
+
+```{Dockerfile}
+FROM bellsoft/liberica-openjdk-alpine:17
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","/app.jar"]
 ```
+
+
 
 ## Extra: export & import docker container
 
@@ -237,11 +305,11 @@ docker inspect -f '{{ .Mounts }}' jenkins-home
 1. [x] Pull Jenkins Docker Image
 2. [x] Build and Run Jenkins Container
 3. [x] Configure Jenkins Account
-4. [ ] Install Basic Plugins
+4. [x] Install Basic Plugins
     - [x] Maven Integration
     - [x] Git
     - [x] Docker
     - [x] SSH
-    - [ ] SonarQube Scanner
-5. [ ] Create a Pipeline for Spring Boot Project
+    - [x] SonarQube Scanner
+5. [x] Create a Pipeline for Spring Boot Project
 6. [x] Bonus: Export & import container

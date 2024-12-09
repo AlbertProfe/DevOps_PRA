@@ -16,6 +16,7 @@ else
     docker run -d -p 9090:8080 -p 50000:50000 \
         -v "${DIR_HOME}":/var/jenkins_home \
         -v /var/run/docker.sock:/var/run/docker.sock \
+        --privileged \
         --name "${NAME}" \
         jenkins/jenkins:latest
     echo "${NAME} created and running"
