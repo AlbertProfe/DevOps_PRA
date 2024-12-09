@@ -141,3 +141,14 @@ Citations:
 [5] https://www.jenkins.io/doc/book/installing/docker/
 [6] https://github.com/jenkinsci/docker
 [7] https://phoenixnap.com/kb/how-to-configure-docker-in-jenkins
+
+### Desenvolupament de l'practica
+
+[1] Comandes Docker.
+
+- sudo docker run -d --name jenkins -p 9090:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock --privileged jenkins/jenkins:lts
+- sudo docker exec -it --user root 30d6f6af47b6 bash
+- sudo docker ps
+
+
+
