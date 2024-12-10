@@ -1,6 +1,6 @@
 # PRA06
 
-TODO DELETE
+# TODO DELETE  
 rsync -ar ~/Pictures/aws/./* ~/Documents/devops/prácticas/DevOps_PRA/PRA06_ANSWER/_PRA/img/pra06/
 rsync -ar ~/Pictures/aws/./* ~/Documents/curso-devops/DevOps_PRA/PRA06_ANSWER/_PRA/img/pra06/
 https://docs.aws.amazon.com/AmazonECS/latest/developerguide/getting-started-fargate.html
@@ -67,40 +67,50 @@ Fargate:
 
 ## Screenshots
 
-![](img/pra06/01-alerts.png)
-![](img/pra06/02-set-default-region.png)
-![](img/pra06/03-downloaded-docker-in-ECR.png)
-![](img/pra06/04-pushed-docker-to-ECR.png)
+![Alertas](img/pra06/01-alerts.png)
+![Asignar región por defecto](img/pra06/02-set-default-region.png)
+![Download mi docker a ECR](img/pra06/03-downloaded-docker-in-ECR.png)
+![Push de mi docker a ECR](img/pra06/04-pushed-docker-to-ECR.png)
+![Docker en ECR](img/pra06/05-ECR-docker-image.png)
+![Inicio de ECS](img/pra06/06-ECS-service.png)
+![Definición de task 1](img/pra06/07-ECS-service-task-definition.png)
+![Definición de task 2](img/pra06/08-ECS-service-task-definition-2.png)
+![Definición de task 3](img/pra06/09-ECS-service-task-definition-3.png)
+![Task creada](img/pra06/10-ECS-service-task-created.png)
+![Task deployment definición 1](img/pra06/11-ECS-service-task2-deployment-1.png)
+![Task deployment definición 2](img/pra06/12-ECS-service-task2-deployment-2.png)
+![Task deployment 1](img/pra06/13-ECS-service-deployment-1.png)
+![Task deployment 2](img/pra06/14-ECS-service-deployment-2.png)
+![](img/pra06/1)
 
 
-
-### configuración maven3
-01. ![configuración maven3](img/pra05/jenkins/01-maven3.png)
-### configuración jdk8
-02. ![configuración jdk8](img/pra05/jenkins/02-jdk8.png)
-### configuración jdk11
-03. ![configuración jdk11](img/pra05/jenkins/03-jdk11.png)
-### configuración jdk17
-04. ![configuración jdk17](img/pra05/jenkins/04-jdk17.png)
-### configuración jdk21
-05. ![configuración jdk21](img/pra05/jenkins/05-jdk21.png)
-### configuración maven-integration
-06. ![configuración maven-integration](img/pra05/jenkins/06-maven-integration.png)
-### configuración docker-plugins
-07. ![configuración docker-plugins](img/pra05/jenkins/07-docker-plugins.png)
-### configuración ssh-plugins
-08. ![configuración ssh-plugins](img/pra05/jenkins/08-ssh-plugins.png)
-### configuración sonnar-qube-plugin
-09. ![configuración sonnar-qube-plugin](img/pra05/jenkins/09-sonnar-qube-plugin.png)
-### pipeline sin docker
-10. ![pipeline sin docker](img/pra05/jenkins/10-pipeline-without-docker.png)
-### pipeline con docker y dockerhub
-11. ![pipeline con docker y dockerhub](img/pra05/jenkins/11-pipeline-with-docker-and-dockerhub.png)
-### pipeline con docker y dockerhub
-12. ![pipeline con docker y dockerhub](img/pra05/jenkins/12-pipeline-with-docker-and-dockerhub.png)
-### probando la imagen de docker: login y pull
-13. ![probando la imagen de docker: login y pull](img/pra05/jenkins/13-testing-my-docker-image-login-pull.png)
-### probando la imagen de docker: running
-14. ![probando la imagen de docker: running](img/pra05/jenkins/14-testing-my-docker-running.png)
-### probando la imagen de docker: funciona!
-15. ![probando la imagen de docker: funciona!](img/pra05/jenkins/15-testing-my-docker-is-working.png)
+### Alertas
+01. ![Alertas](img/pra06/01-alerts.png)
+### Asignar región por defecto
+02. ![Asignar región por defecto](img/pra06/02-set-default-region.png)
+### Download mi docker a ECR
+03. ![Download mi docker a ECR](img/pra06/03-downloaded-docker-in-ECR.png)
+### Push de mi docker a ECR
+04. ![Push de mi docker a ECR](img/pra06/04-pushed-docker-to-ECR.png)
+### Docker en ECR
+05. ![Docker en ECR](img/pra06/05-ECR-docker-image.png)
+### Inicio de ECS
+06. ![Inicio de ECS](img/pra06/06-ECS-service.png)
+### Definición de task 1
+07. ![Definición de task 1](img/pra06/07-ECS-service-task-definition.png)
+### Definición de task 2
+08. ![Definición de task 2](img/pra06/08-ECS-service-task-definition-2.png)
+### Definición de task 3
+09. ![Definición de task 3](img/pra06/09-ECS-service-task-definition-3.png)
+### Task creada
+10. ![Task creada](img/pra06/10-ECS-service-task-created.png)
+### Task deployment definición 1
+11. ![Task deployment definición 1](img/pra06/11-ECS-service-task2-deployment-1.png)
+### Task deployment definición 2
+12. ![Task deployment definición 2](img/pra06/12-ECS-service-task2-deployment-2.png)
+### Task deployment 1
+13. ![Task deployment 1](img/pra06/13-ECS-service-deployment-1.png)
+### Task deployment 2
+14. ![Task deployment 2](img/pra06/14-ECS-service-deployment-2.png)
+### 
+15. ![](img/pra06/1x)
