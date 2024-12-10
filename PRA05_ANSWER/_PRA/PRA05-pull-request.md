@@ -1,8 +1,18 @@
 # PRA05
 
-## Explanation
+## Tasks
 
-
+1. [x] Pull Jenkins Docker Image
+2. [x] Build and Run Jenkins Container
+3. [x] Configure Jenkins Account
+4. [x] Install Basic Plugins
+    - [x] Maven Integration
+    - [x] Git
+    - [x] Docker
+    - [x] SSH
+    - [x] SonarQube Scanner
+5. [x] Create a Pipeline for Spring Boot Project
+6. [x] Bonus: Export & import container
 
 ## Execution
 
@@ -33,6 +43,7 @@ else
     docker run -d -p 9090:8080 -p 50000:50000 \
         -v "${DIR_HOME}":/var/jenkins_home \
         -v /var/run/docker.sock:/var/run/docker.sock \
+        --privileged \
         --name "${NAME}" \
         jenkins/jenkins:latest
     echo "${NAME} created and running"
@@ -81,7 +92,7 @@ java -jar target/springConference-0.0.1-SNAPSHOT.jar
 # abrir el navegador en http://localhost:8080
 ```
 
-groovy
+groovy con mi pipeline
 ```
 pipeline {
     agent any
@@ -188,15 +199,41 @@ EXPOSE 8080
 ENTRYPOINT ["java","-jar","/app.jar"]
 ```
 
+## instalación de docker en el container de jenkins
+
+con el container de jenkins ejecutándose conectarse a su `bash` como root
+```
+docker exec -it -u root jenkins bash
+```
+
+y dentro de instalar docker con
+```
+apt install docker.io
+```
+y comprobar que los permisos del socket de docker son los correctos
+```
+ls -la /var/run/docker.sock
+```
+debe devolver
+```
+srw-rw---- 1 root jenkins 0 Dec 10 07:41 /var/run/docker.sock
+```
+si el socket no tiene estos permisos cambiarlos con:
+```
+chown root:jenkins /var/run/docker.sock
+chmod 660 /var/run/docker.sock
+```
+
+
 
 
 ## Extra: export & import docker container
 
-Siguiendo las instrucciones de este (artículo)[https://www.maketecheasier.com/copy-move-docker-container-to-another-host/] he conseguido exportar e importar el contenido de un contenedor docker.
+Siguiendo las instrucciones de este [artículo](https://www.maketecheasier.com/copy-move-docker-container-to-another-host/) he conseguido exportar e importar el contenido de un contenedor docker.
 
 ### Paso 0: instalar `docker-volumes.sh`
 
-(github de `docker-volumes.sh`)[https://github.com/ricardobranco777/docker-volumes.sh]
+[github de `docker-volumes.sh`](https://github.com/ricardobranco777/docker-volumes.sh)
 
 
 https://raw.githubusercontent.com/ricardobranco777/docker-volumes.sh/master/docker-volumes.sh
@@ -295,21 +332,33 @@ docker inspect -f '{{ .Mounts }}' jenkins-home
 
 ## Screenshots
 
-### docker build backend
-![docker build backend](img/pra04/01-build-backend.png)
-
-
-
-## Tasks
-
-1. [x] Pull Jenkins Docker Image
-2. [x] Build and Run Jenkins Container
-3. [x] Configure Jenkins Account
-4. [x] Install Basic Plugins
-    - [x] Maven Integration
-    - [x] Git
-    - [x] Docker
-    - [x] SSH
-    - [x] SonarQube Scanner
-5. [x] Create a Pipeline for Spring Boot Project
-6. [x] Bonus: Export & import container
+### configuración maven3
+01. ![configuración maven3](img/pra05/jenkins/01-maven3.png)
+### configuración jdk8
+02. ![configuración jdk8](img/pra05/jenkins/02-jdk8.png)
+### configuración jdk11
+03. ![configuración jdk11](img/pra05/jenkins/03-jdk11.png)
+### configuración jdk17
+04. ![configuración jdk17](img/pra05/jenkins/04-jdk17.png)
+### configuración jdk21
+05. ![configuración jdk21](img/pra05/jenkins/05-jdk21.png)
+### configuración maven-integration
+06. ![configuración maven-integration](img/pra05/jenkins/06-maven-integration.png)
+### configuración docker-plugins
+07. ![configuración docker-plugins](img/pra05/jenkins/07-docker-plugins.png)
+### configuración ssh-plugins
+08. ![configuración ssh-plugins](img/pra05/jenkins/08-ssh-plugins.png)
+### configuración sonnar-qube-plugin
+09. ![configuración sonnar-qube-plugin](img/pra05/jenkins/09-sonnar-qube-plugin.png)
+### pipeline sin docker
+10. ![pipeline sin docker](img/pra05/jenkins/10-pipeline-without-docker.png)
+### pipeline con docker y dockerhub
+11. ![pipeline con docker y dockerhub](img/pra05/jenkins/11-pipeline-with-docker-and-dockerhub.png)
+### pipeline con docker y dockerhub
+12. ![pipeline con docker y dockerhub](img/pra05/jenkins/12-pipeline-with-docker-and-dockerhub.png)
+### probando la imagen de docker: login y pull
+13. ![probando la imagen de docker: login y pull](img/pra05/jenkins/13-testing-my-docker-image-login-pull.png)
+### probando la imagen de docker: running
+14. ![probando la imagen de docker: running](img/pra05/jenkins/14-testing-my-docker-running.png)
+### probando la imagen de docker: funciona!
+15. ![probando la imagen de docker: funciona!](img/pra05/jenkins/15-testing-my-docker-is-working.png)
