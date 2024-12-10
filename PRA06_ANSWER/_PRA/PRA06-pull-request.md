@@ -1,6 +1,12 @@
-# PRA05
+# PRA06
 
 ## Tasks
+
+1. [ ] Create an AWS Account
+2. [ ] Set Up AWS Budget and Billing Alerts
+3. [ ] Create AWS Services for Spring Boot Docker Deployment
+4. [ ] Update Jenkins Pipeline for AWS Deployment
+5. [ ] Deploy Spring Boot Application
 
 
 ## Execution
