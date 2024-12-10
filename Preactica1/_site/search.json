@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Indice",
+    "section": "",
+    "text": "Quarto Fuentes\n\nDocumentacion pagina Albert\nDocumentacion oficial Quarto Quarto\n\nGitHub Fuentes\n\nDocumentacion pagina Albert\nDocumentacion oficial GitHub GitH\n\nDockerFuentes\n\nDocumentacion pagina Albert\nDocumentacion oficial GitHub Dockerdocs\n\n\n\n\n\n\n\n\nRecursos del Laboratorio\n\n\n\nEmpezamos el curso con la Instalacion de Linux Mint Linux Mint En una maquina Virtual de Virtual box Trabajaremos Con el IDE Visual Studio Code\n\n\n\n\n\n\n\n\nAutor:\n\n\n\n\nPedro Cecilia\nCifo la VIoleta"
+  },
+  {
+    "objectID": "index.html#documentacion-cureso-devops",
+    "href": "index.html#documentacion-cureso-devops",
+    "title": "Indice",
+    "section": "",
+    "text": "Quarto Fuentes\n\nDocumentacion pagina Albert\nDocumentacion oficial Quarto Quarto\n\nGitHub Fuentes\n\nDocumentacion pagina Albert\nDocumentacion oficial GitHub GitH\n\nDockerFuentes\n\nDocumentacion pagina Albert\nDocumentacion oficial GitHub Dockerdocs\n\n\n\n\n\n\n\n\nRecursos del Laboratorio\n\n\n\nEmpezamos el curso con la Instalacion de Linux Mint Linux Mint En una maquina Virtual de Virtual box Trabajaremos Con el IDE Visual Studio Code\n\n\n\n\n\n\n\n\nAutor:\n\n\n\n\nPedro Cecilia\nCifo la VIoleta"
+  },
+  {
+    "objectID": "home.html",
+    "href": "home.html",
+    "title": "Laboratorio 1",
+    "section": "",
+    "text": "title: “Indice”\n\n\n\n\n\nflowchart LR\n  A[Client] --&gt; B(Load Balancer)\n  B --&gt; C{Decision}\n  C --&gt; D[Server one]\n  C --&gt; E[Esrver two]"
+  }
+]
