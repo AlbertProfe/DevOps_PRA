@@ -1,5 +1,12 @@
 # PRA06
 
+TODO DELETE
+rsync -ar ~/Pictures/aws/./* ~/Documents/devops/prácticas/DevOps_PRA/PRA06_ANSWER/_PRA/img/pra06/
+rsync -ar ~/Pictures/aws/./* ~/Documents/curso-devops/DevOps_PRA/PRA06_ANSWER/_PRA/img/pra06/
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/getting-started-fargate.html
+
+
+
 ## Tasks
 
 1. [x] Create an AWS Account
@@ -9,13 +16,13 @@
 2. [ ] Set Up AWS Budget and Billing Alerts
     1. [x] Navigate to AWS Budgets in the AWS Management Console
     2. [x] Click "Create budget" and choose "Customize (advanced)"
-    3. [x] Select "Cost budget" and set a monthly fixed budget[5]
-    4. [x] Configure alerts for 80% of your budgeted amount[5]
-    5. [ ] Set up an action to automatically apply an IAM policy restricting resource creation when the budget is exceeded[3]
+    3. [x] Select "Cost budget" and set a monthly fixed budget
+    4. [x] Configure alerts for 80% of your budgeted amount
+    5. [ ] Set up an action to automatically apply an IAM policy restricting resource creation when the budget is exceeded
 3. [ ] Create AWS Services for Spring Boot Docker Deployment
     1. [x] Set up Amazon Elastic Container Registry (ECR)
-    2. [x] Configure Amazon Elastic Container Service (ECS)
-    3. [x] Set up AWS Fargate
+    2. [1/2] Configure Amazon Elastic Container Service (ECS)
+    3. [ ] Set up AWS Fargate
 4. [ ] Update Jenkins Pipeline for AWS Deployment
 5. [ ] Deploy Spring Boot Application
 
@@ -34,6 +41,28 @@ docker tag jcprograms/springconference 183631312119.dkr.ecr.eu-central-1.amazona
 docker push 183631312119.dkr.ecr.eu-central-1.amazonaws.com/jcprograms/spring-conference
 ```
 
+## Data
+
+docker pull jcprograms/springconference 
+docker tag jcprograms/springconference 183631312119.dkr.ecr.eu-central-1.amazonaws.com/jcprograms/spring-conference
+docker push 183631312119.dkr.ecr.eu-central-1.amazonaws.com/jcprograms/spring-conference
+
+
+dockerhub: docker imate
+jcprograms/springconference
+
+ECR: private image
+183631312119.dkr.ecr.eu-central-1.amazonaws.com/jcprograms/spring-conference
+
+ECS: Cluster
+springConferenceClusterV2
+arn:aws:ecs:eu-central-1:183631312119:cluster/springConferenceClusterV2
+
+    SpringConferenceContainer
+
+    
+
+Fargate:
 
 
 ## Screenshots
@@ -43,7 +72,7 @@ docker push 183631312119.dkr.ecr.eu-central-1.amazonaws.com/jcprograms/spring-co
 ![](img/pra06/03-downloaded-docker-in-ECR.png)
 ![](img/pra06/04-pushed-docker-to-ECR.png)
 
-rsync -ar ~/Pictures/aws/./* ~/Documents/devops/prácticas/DevOps_PRA/PRA06_ANSWER/_PRA/img/pra06/
+
 
 ### configuración maven3
 01. ![configuración maven3](img/pra05/jenkins/01-maven3.png)
