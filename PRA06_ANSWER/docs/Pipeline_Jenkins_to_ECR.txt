@@ -1,0 +1,65 @@
+pipeline {
+    agent any
+
+    environment {
+        IMAGE_NAME = 'testjenkins'
+        IMAGE_TAG = "${IMAGE_NAME}-${BUILD_NUMBER}" // Combina nombre e ID de build
+        AWS_ACCOUNT_ID = '559050249249'
+        AWS_DEFAULT_REGION = 'us-east-1'
+        IMAGE_REPO_NAME = "t6o5r2l4/test/jenkins"
+        REPOSITORY_URI = "public.ecr.aws/${IMAGE_REPO_NAME}"
+    }
+
+    tools {
+        maven 'M3'
+        jdk 'JDK21'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/Alexkano10/Test_Jenkins.git'
+            }
+        }
+
+        stage('Build with Maven') {
+            steps {
+                sh 'mvn clean package -DskipTests'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    sh """
+                        docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .
+                        docker tag ${IMAGE_NAME}:${IMAGE_TAG} ${REPOSITORY_URI}:${IMAGE_TAG}
+                    """
+                }
+            }
+        }
+
+        stage('Push Docker Image to ECR') {
+            steps {
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-access']]) {
+                    script {
+                        sh """
+                            aws ecr-public get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin public.ecr.aws
+                            docker push ${REPOSITORY_URI}:${IMAGE_TAG}
+                        """
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            sh """
+                docker image rm ${IMAGE_NAME}:${IMAGE_TAG} || true
+                docker image rm ${REPOSITORY_URI}:${IMAGE_TAG} || true
+            """
+        }
+    }
+}
+
