@@ -1,0 +1,63 @@
+---
+title: "Docker"
+---
+
+1. Create folders booksBackEnd and booksFrontEnd in root of git repo folder.
+2. In booksBackEnd we put .jar and create app.Dockerfile
+3. Contents of app.Dockerfile:
+
+```
+# Use a Java 21 base image
+FROM openjdk:21-jdk-slim
+
+# Maintainer information
+LABEL maintainer="isaacdiez"
+
+# Copy the application JAR file to the container
+COPY BooksPageable-0.0.4-SNAPSHOT.jar books.jar
+
+# Set the entry point to run the JAR file
+ENTRYPOINT ["java", "-jar", "books.jar"]
+```
+
+4. In folder booksFrontEnd we create yet another folder named frontend where we put all the uncompressed contents of the react project.
+
+5. We create frontend.Dockerfile:
+
+```
+FROM nginx:alpine
+COPY frontend/ /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+```
+
+6. In CLI:
+```
+sudo docker build -f app.dockerfile -t books .
+sudo docker run -p 8080:8080 books
+```
+
+```
+sudo docker build -t frontend-pra04 -f frontend.Dockerfile .
+sudo docker run -d -p 90:80 frontend-pra04
+```
+
+To see all the images created:
+```
+docker image ls
+```
+
+To see all running containers:
+```
+docker ps
+```
+
+To upload images to Docker Hub:
+```
+docker tag 2540105a414f isaacdiez/frontend-pra04:latest
+docker tag 7adcb4eec586 isaacdiez/books:latest
+docker push isaacdiez/frontend-pra04:latest
+docker push isaacdiez/books:latest
+```
+
+
