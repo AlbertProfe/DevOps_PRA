@@ -163,5 +163,7 @@ pipeline {
 14. ![Task deployment 2](img/pra06/14-ECS-service-deployment-2.png)
 ### Network configuration
 15. ![Network configuration](img/pra06/15-ECS-service-network.png)
+### Network configuration
+16. ![Security Group Networking](img/pra06/16-ECS-security-group-networking.png)
 ### Fargate is working
-16. ![Fargate is working](img/pra06/16-Fargate-working.png)
+17. ![Fargate is working](img/pra06/17-Fargate-working.png)
