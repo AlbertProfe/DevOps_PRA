@@ -234,3 +234,7 @@ extensions:
 - Adherence to best practices for Quarto and GitHub Pages
 
 Remember to focus on creating a well-structured and visually appealing Quarto website that demonstrates good documentation practices. Good luck!
+
+### Desenvolupament MF01-PRA01
+
+- adjunt imatges
