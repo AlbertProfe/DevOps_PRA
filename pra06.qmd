@@ -1,0 +1,15 @@
+## MF06-PRA06: AWS Deployment for Spring Boot Docker Application
+
+## Objectius && Passos aproximats
+- Desplegar la imatge creada amb Jenkins als serveis d'AWS que faran la publicació (ECR, ECS i Fargate)
+- Crear un compte d'AWS en la Free Tier (capa gratuïta)
+- Configurar un Budget per controlar el límit de despesa (que avisi amb un Alert si es supera un determinat llindar mensual sobre el pressupost)
+- Crear i configurar els serveis AWS que desplegaran l'aplicació Spring Boot convertida en una imatge per Jenkins
+- A ECR crear un repositori (apuntar la públic URI)
+- A ECS crear un cluster, task, services, i escollir Fargate com a manera de desplegar la imatge (podríem fer-ho amb EC2 alternativament)
+- Tornar a Jenkins per modificar la pipeline per a integrar ECR (connectar automàticament amb ECR a través de la URI on penjarà la imatge, afegir un stage que faci el push a ECR i una latre stage que faci el deploy a ECS) 
+- Per a activar tot el procés caldrà tornar a executar la pipeline de Jenkins
+
+![](images/1-budget.png)
+![](images/2-ecr.png)
+![](images/3-ecs-cluster.png)
