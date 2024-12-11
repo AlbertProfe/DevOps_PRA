@@ -1,11 +1,6 @@
 # PRA06
 
-# TODO DELETE  
-rsync -ar ~/Pictures/aws/./* ~/Documents/devops/prácticas/DevOps_PRA/PRA06_ANSWER/_PRA/img/pra06/
-rsync -ar ~/Pictures/aws/./* ~/Documents/curso-devops/DevOps_PRA/PRA06_ANSWER/_PRA/img/pra06/
-https://docs.aws.amazon.com/AmazonECS/latest/developerguide/getting-started-fargate.html
-
-
+Mi imagen docker de SpringConference deployada a AWS: [http://3.66.219.45:8080/](http://3.66.219.45:8080/)
 
 ## Tasks
 
@@ -13,7 +8,7 @@ https://docs.aws.amazon.com/AmazonECS/latest/developerguide/getting-started-farg
     1. [x] Visit the AWS website and click "Create an AWS Account"
     2. [x] Follow the registration process, providing necessary information
     3. [x] Choose a support plan (Basic is free and sufficient for this exercise)
-2. [ ] Set Up AWS Budget and Billing Alerts
+2. [4/5] Set Up AWS Budget and Billing Alerts
     1. [x] Navigate to AWS Budgets in the AWS Management Console
     2. [x] Click "Create budget" and choose "Customize (advanced)"
     3. [x] Select "Cost budget" and set a monthly fixed budget
@@ -24,7 +19,7 @@ https://docs.aws.amazon.com/AmazonECS/latest/developerguide/getting-started-farg
     2. [x] Configure Amazon Elastic Container Service (ECS)
     3. [x] Set up AWS Fargate
 4. [ ] Update Jenkins Pipeline for AWS Deployment
-5. [ ] Deploy Spring Boot Application
+5. [x] Deploy Spring Boot Application
 
 
 ## Execution
@@ -41,56 +36,102 @@ docker tag jcprograms/springconference 183631312119.dkr.ecr.eu-central-1.amazona
 docker push 183631312119.dkr.ecr.eu-central-1.amazonaws.com/jcprograms/spring-conference
 ```
 
-## Data
+Mi pipeline de `Jenkins` que crea el docker y hace pull a docker hub
+```
+pipeline {
+    agent any
 
-docker pull jcprograms/springconference 
-docker tag jcprograms/springconference 183631312119.dkr.ecr.eu-central-1.amazonaws.com/jcprograms/spring-conference
-docker push 183631312119.dkr.ecr.eu-central-1.amazonaws.com/jcprograms/spring-conference
+    environment {
+        IMAGE_NAME = 'jcprograms/springconference'
+        IMAGE_TAG = "${BUILD_NUMBER}"
+    }
 
+    tools {
+        maven "MAVEN3"
+        jdk 'JDK17'
+    }
 
-dockerhub: docker imate
-jcprograms/springconference
+    stages {
+        stage ('Checking java version') {
+            steps {
+                sh 'java --version'
+            }
+        }
+        
+        stage ('Checking maven version') {
+            steps {               
+                sh 'mvn --version'
+            }
+        }
+        
+        stage ('Checking docker version') {
+            steps {               
+                sh 'docker --version'
+            }
+        }
+        
+        
+        stage('Checkout git') {
+            steps {
+                // set repository url and branch
+                git branch: 'docker-version', url: 'https://github.com/jc-programs/SpringConference.git'
+            }
+        }
 
-ECR: private image
-183631312119.dkr.ecr.eu-central-1.amazonaws.com/jcprograms/spring-conference
+        stage ('build app skiping test') {
+            steps {               
+                sh 'mvn clean package -DskipTests=true -Pproduction'
+            }
+        }
 
-ECS: Cluster
-springConferenceClusterV2
-arn:aws:ecs:eu-central-1:183631312119:cluster/springConferenceClusterV2
+        stage('Archive .jar') {
+            steps {
+                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+            }
+        }
+        
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    docker.build("${IMAGE_NAME}:${IMAGE_TAG}")
+                }
+            }
+        }
+ 
+ 
+        stage('Login to Docker Hub') {
+            steps {
+                script {
+                    docker.withRegistry('', 'dockerhub_id') {
+                        // This block will log in using the credentials specified
+                        sh 'echo loged in docker'
+                    }
+                }
+            }
+        }
 
-    SpringConferenceContainer
-
-    
-
-Fargate:
-
+        stage('Push Image to Docker Hub') {
+            steps {
+                script {
+                    docker.withRegistry('', 'dockerhub_id') {
+                        docker.image("${IMAGE_NAME}:${IMAGE_TAG}").push()
+                        docker.image("${IMAGE_NAME}:${IMAGE_TAG}").push('latest')
+                    }
+                }
+            }
+        }
+    }
+ 
+    post {
+        always {
+            sh "docker rmi ${IMAGE_NAME}:${IMAGE_TAG}"
+            sh "docker rmi ${IMAGE_NAME}:latest"
+        }
+    }
+}
+```
 
 ## Screenshots
-
-![Alertas](img/pra06/01-alerts.png)
-![Asignar región por defecto](img/pra06/02-set-default-region.png)
-![Download mi docker a ECR](img/pra06/03-downloaded-docker-in-ECR.png)
-![Push de mi docker a ECR](img/pra06/04-pushed-docker-to-ECR.png)
-![Docker en ECR](img/pra06/05-ECR-docker-image.png)
-![Inicio de ECS](img/pra06/06-ECS-service.png)
-![Definición de task 1](img/pra06/07-ECS-service-task-definition.png)
-![Definición de task 2](img/pra06/08-ECS-service-task-definition-2.png)
-![Definición de task 3](img/pra06/09-ECS-service-task-definition-3.png)
-![Task creada](img/pra06/10-ECS-service-task-created.png)
-![Task deployment definición 1](img/pra06/11-ECS-service-task2-deployment-1.png)
-![Task deployment definición 2](img/pra06/12-ECS-service-task2-deployment-2.png)
-![Task deployment 1](img/pra06/13-ECS-service-deployment-1.png)
-![Task deployment 2](img/pra06/14-ECS-service-deployment-2.png)
-
-
-![](img/pra06/15-ECS-service-network.png)
-![ Security group networking](img/pra06/16-ECS-security-group-networking.png)
-![](img/pra06/1)
-![](img/pra06/1)
-![](img/pra06/1)
-![Fargate is working](img/pra06/20-Fargate-working.png)
-![](img/pra06/2)
-
 
 ### Alertas
 01. ![Alertas](img/pra06/01-alerts.png)
@@ -120,9 +161,7 @@ Fargate:
 13. ![Task deployment 1](img/pra06/13-ECS-service-deployment-1.png)
 ### Task deployment 2
 14. ![Task deployment 2](img/pra06/14-ECS-service-deployment-2.png)
-### 
-15. ![](img/pra06/1x)
-
-
+### Network configuration
+15. ![Network configuration](img/pra06/15-ECS-service-network.png)
 ### Fargate is working
-20. ![Fargate is working](img/pra06/20-Fargate-working.png)
+16. ![Fargate is working](img/pra06/16-Fargate-working.png)
