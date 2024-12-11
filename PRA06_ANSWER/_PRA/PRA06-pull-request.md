@@ -19,10 +19,10 @@ https://docs.aws.amazon.com/AmazonECS/latest/developerguide/getting-started-farg
     3. [x] Select "Cost budget" and set a monthly fixed budget
     4. [x] Configure alerts for 80% of your budgeted amount
     5. [ ] Set up an action to automatically apply an IAM policy restricting resource creation when the budget is exceeded
-3. [ ] Create AWS Services for Spring Boot Docker Deployment
+3. [x] Create AWS Services for Spring Boot Docker Deployment
     1. [x] Set up Amazon Elastic Container Registry (ECR)
-    2. [1/2] Configure Amazon Elastic Container Service (ECS)
-    3. [ ] Set up AWS Fargate
+    2. [x] Configure Amazon Elastic Container Service (ECS)
+    3. [x] Set up AWS Fargate
 4. [ ] Update Jenkins Pipeline for AWS Deployment
 5. [ ] Deploy Spring Boot Application
 
@@ -81,7 +81,15 @@ Fargate:
 ![Task deployment definición 2](img/pra06/12-ECS-service-task2-deployment-2.png)
 ![Task deployment 1](img/pra06/13-ECS-service-deployment-1.png)
 ![Task deployment 2](img/pra06/14-ECS-service-deployment-2.png)
+
+
+![](img/pra06/15-ECS-service-network.png)
+![ Security group networking](img/pra06/16-ECS-security-group-networking.png)
 ![](img/pra06/1)
+![](img/pra06/1)
+![](img/pra06/1)
+![Fargate is working](img/pra06/20-Fargate-working.png)
+![](img/pra06/2)
 
 
 ### Alertas
@@ -114,3 +122,7 @@ Fargate:
 14. ![Task deployment 2](img/pra06/14-ECS-service-deployment-2.png)
 ### 
 15. ![](img/pra06/1x)
+
+
+### Fargate is working
+20. ![Fargate is working](img/pra06/20-Fargate-working.png)
