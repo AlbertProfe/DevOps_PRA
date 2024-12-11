@@ -1,0 +1,19 @@
+## MF05-PRA05: Jenkins CI/CD Pipeline for Spring Boot Application
+
+## Objectius
+- Crear una CI/CD pipeline per a una aplicació Spring Boot amb Jenkins
+- Entendre la funció de Jenkins en el cicle de treball de DevOps
+- Instal·lar i configurar Jenkins en un contenidor Docker
+- Ajustar un script fet amb groovy per crear la pipeline
+- Analitzar els errors resultants (conflicte amb Docker dins de Jenkins, permissos...)
+- Familiaritzar-se amb diverses maneres de poder tenir contenidors Docker dins de Jenkins (DinD, DoutD...) 
+
+## Passos aproximats
+- Partim d'una aplicació feta amb Spring Boot preparada per passar a la següent fase del cicle (automatització del build, tests). El codi font el tenim en un repositori públic a GitHub
+- L'eina d'automatització escollida és Jenkins, la qual serà executada dins d'un contenidor Docker per evitar haver d'instal·lar-la en local.
+- Un cop instal·lada, l'hen de configurar en funció del tipus d'aplicació que volem automatitzar, escollint els plugins i tools corresponents (Maven i JDK perquè tenim una aplicació feta amb Spring Boot, Git, Docker i algunes més de tipus genèric)
+- El resultat final de tot el procés ha de ser una imatge, la qual serà pujada al repositori d'imatges del nuvol d'AWS al servei ECR (Elastic Container Registry) per a un desplegament posterior en altres serveis d'AWS (ECS, Fargate)
+
+![](images/1-jenkin-config.png)
+
+![](images/12-docker-failure.png)
