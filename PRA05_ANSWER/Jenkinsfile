@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'M3'
+        jdk 'JDK21'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git url: 'https://github.com/AlbertProfe/BooksPageable.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                script {
+                    docker.build("pageablebooks:${env.BUILD_ID}")
+                }
+            }
+        }
+
+        stage('Docker Run') {
+            steps {
+                script {
+                    docker.image("pageablebooks:${env.BUILD_ID}").run('-p 8088:9090')
+                }
+            }
+        }
+    }
+}
