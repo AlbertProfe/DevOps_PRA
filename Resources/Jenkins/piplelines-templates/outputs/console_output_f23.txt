@@ -1,0 +1,255 @@
+Started by user admin
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\ProgramData\Jenkins\.jenkins\workspace\test3
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Tool Install)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checking java version)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\test3>java -version 
+java version "17.0.5" 2022-10-18 LTS
+Java(TM) SE Runtime Environment (build 17.0.5+9-LTS-191)
+Java HotSpot(TM) 64-Bit Server VM (build 17.0.5+9-LTS-191, mixed mode, sharing)
+[Pipeline] echo
+This is a minimal pipeline.
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Cloning github repository)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] git
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\test3\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/AlbertProfe/libraryH2command.git # timeout=10
+Fetching upstream changes from https://github.com/AlbertProfe/libraryH2command.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.34.0.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/AlbertProfe/libraryH2command.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+Checking out Revision 25a253aec9e2c1b3e00ae95350bcd37546d1186d (refs/remotes/origin/master)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 25a253aec9e2c1b3e00ae95350bcd37546d1186d # timeout=10
+ > git.exe branch -a -v --no-abbrev # timeout=10
+ > git.exe branch -D master # timeout=10
+ > git.exe checkout -b master 25a253aec9e2c1b3e00ae95350bcd37546d1186d # timeout=10
+Commit message: "first"
+ > git.exe rev-list --no-walk 25a253aec9e2c1b3e00ae95350bcd37546d1186d # timeout=10
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (maven version)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\test3>mvn -version 
+Apache Maven 3.8.6 (84538c9988a25aec085021c365c560670ad80f63)
+Maven home: C:\ProgramData\Jenkins\.jenkins\tools\hudson.tasks.Maven_MavenInstallation\mvn-jenkins
+Java version: 17.0.5, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk-17.0.5
+Default locale: ca_ES, platform encoding: Cp1252
+OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (build app test)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\test3>mvn clean install -DskipTests=true  
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.example:myfirstprojectspring >------------------
+[INFO] Building myfirstprojectspring 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ myfirstprojectspring ---
+[INFO] Deleting C:\ProgramData\Jenkins\.jenkins\workspace\test3\target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ myfirstprojectspring ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ myfirstprojectspring ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to C:\ProgramData\Jenkins\.jenkins\workspace\test3\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ myfirstprojectspring ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory C:\ProgramData\Jenkins\.jenkins\workspace\test3\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ myfirstprojectspring ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ myfirstprojectspring ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.2:jar (default-jar) @ myfirstprojectspring ---
+[INFO] Building jar: C:\ProgramData\Jenkins\.jenkins\workspace\test3\target\myfirstprojectspring-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.6.3:repackage (repackage) @ myfirstprojectspring ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ myfirstprojectspring ---
+[INFO] Installing C:\ProgramData\Jenkins\.jenkins\workspace\test3\target\myfirstprojectspring-0.0.1-SNAPSHOT.jar to C:\WINDOWS\system32\config\systemprofile\.m2\repository\com\example\myfirstprojectspring\0.0.1-SNAPSHOT\myfirstprojectspring-0.0.1-SNAPSHOT.jar
+[INFO] Installing C:\ProgramData\Jenkins\.jenkins\workspace\test3\pom.xml to C:\WINDOWS\system32\config\systemprofile\.m2\repository\com\example\myfirstprojectspring\0.0.1-SNAPSHOT\myfirstprojectspring-0.0.1-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.169 s
+[INFO] Finished at: 2022-11-16T10:47:05+01:00
+[INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (docker image build)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\test3>docker build -f Dockerfile.groovy -t project/libraryh2command:latest . 
+#1 [internal] load build definition from Dockerfile.groovy
+#1 sha256:1d955301be57fb320b1ad902ddfea24d3c3ae86754f1aed7b7d2043497f64a47
+#1 transferring dockerfile: 235B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:873420012f9ab7bea80288661358630b520dcf2e303e3f63d9c352261a8bee9f
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/adoptopenjdk/openjdk11:alpine-jre
+#3 sha256:3a7af785de39669c6ea2db8150bdfe4b7e46f7041cce0809619ed6bec003c0a9
+#3 DONE 1.1s
+
+#4 [1/2] FROM docker.io/adoptopenjdk/openjdk11:alpine-jre@sha256:f829f93be7762ba6662f7096a542d797091f2030628143080e7429ca7b43009c
+#4 sha256:2e85a1218ff5fd13002c3102d740804fecbbf6e87bb9f044d4fda7c54d93afc1
+#4 CACHED
+
+#6 [internal] load build context
+#6 sha256:2977b77cbef8b98d050372312acf2496bebf172af9e8b1c4b65d31f376fee815
+#6 transferring context: 39.71MB 0.2s done
+#6 DONE 0.2s
+
+#5 [2/2] COPY target/myfirstprojectspring-0.0.1-SNAPSHOT.jar springbootlibrary.jar
+#5 sha256:64a20b59cc2d473939807ae6c085913a5c23a33a3b11ff1f60f68a60150d1b42
+#5 DONE 0.1s
+
+#7 exporting to image
+#7 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#7 exporting layers
+#7 exporting layers 0.1s done
+#7 writing image sha256:4b3475f3dab078c0c9154f69cab894cb21098ace366d16492364a0bcc3516e15 done
+#7 naming to docker.io/project/libraryh2command:latest done
+#7 DONE 0.1s
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (docker image push to Docker Hub)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] echo
+to do ....
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\test3>mvn dockerfile:push 
+[INFO] Scanning for projects...
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-metadata.xml
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/maven-metadata.xml
+Progress (1): 2.7/14 kB
+Progress (1): 5.5/14 kB
+Progress (1): 8.2/14 kB
+Progress (1): 11/14 kB 
+Progress (1): 14/14 kB
+Progress (1): 14 kB   
+Progress (2): 14 kB | 2.7/21 kB
+Progress (2): 14 kB | 5.5/21 kB
+Progress (2): 14 kB | 8.2/21 kB
+Progress (2): 14 kB | 11/21 kB 
+Progress (2): 14 kB | 14/21 kB
+Progress (2): 14 kB | 16/21 kB
+                              
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-metadata.xml (14 kB at 42 kB/s)
+Progress (1): 19/21 kB
+Progress (1): 21 kB   
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/maven-metadata.xml (21 kB at 56 kB/s)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.017 s
+[INFO] Finished at: 2022-11-16T10:47:13+01:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] No plugin found for prefix 'dockerfile' in the current project and in the plugin groups [org.apache.maven.plugins, org.codehaus.mojo] available from the repositories [local (C:\WINDOWS\system32\config\systemprofile\.m2\repository), central (https://repo.maven.apache.org/maven2)] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/NoPluginFoundForPrefixException
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: script returned exit code 1
+Finished: FAILURE

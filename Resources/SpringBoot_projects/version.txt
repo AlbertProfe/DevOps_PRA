@@ -1,0 +1,4 @@
+BooksPageable-0.0.1-SNAPSHOT  just spring boot, rest and thymelaef pageable
+BooksPageable-0.0.2-SNAPSHOT  just spring boot, rest and thymelaef pageable updated
+BooksPageable-0.0.3-SNAPSHOT  cors anntotaion rest controller
+BooksPageable-0.0.4-SNAPSHOT  cors anntotaion rest controller and config class

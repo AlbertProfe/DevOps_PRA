@@ -1,3 +1,68 @@
+# Docker commands
+
+## Overview
+
+The Dockerfile instructions FROM, LABEL, MAINTAINER, COPY, and ENTRYPOINT serve different purposes in building Docker images:
+
+`FROM`
+
+Specifies the base image for subsequent instructions[6]. It's typically the first instruction in a Dockerfile and sets the starting point for the build process.
+
+ `LABEL`
+
+Adds metadata to an image in the form of key-value pairs[6]. It's used to organize and provide additional information about the image, such as version, description, or author[2]. For example:
+
+```dockerfile
+LABEL version="1.0.2"
+LABEL org.opencontainers.image.authors="moby@example.com"
+```
+
+`MAINTAINER (Deprecated)`
+
+The MAINTAINER instruction is deprecated and should not be used[4]. Instead, use the LABEL instruction to specify the author:
+
+```dockerfile
+LABEL org.opencontainers.image.authors="moby@example.com"
+```
+
+`COPY`
+
+Copies files and directories from the build context to the image[6]. It's used to add application code, configuration files, and other necessary resources to the image.
+
+`ENTRYPOINT`
+
+Specifies the default executable for the image. It defines the command that will run when a container is started from the image. ENTRYPOINT can be used in combination with CMD to set default arguments for the specified command.
+
+`CMD`
+
+The CMD instruction in Docker specifies the default command to be executed when a container starts from an image. It serves several key purposes:
+
+1. Defines the default executable for the container[3].
+2. Provides a sensible default behavior that can be easily overridden[3].
+3. Sets default arguments for the ENTRYPOINT process[2].
+
+CMD can be written in two formats:
+
+1. Shell syntax: `CMD executable parameter1 parameter2`
+2. JSON array format (preferred): `CMD ["executable", "parameter1", "parameter2"]`
+
+Key points about CMD:
+
+- Only the last CMD instruction in a Dockerfile is effective if multiple are present[1].
+- It can be overridden by providing command-line arguments when running the container with `docker run`[3][5].
+- When used with ENTRYPOINT, CMD specifies the default parameters for the ENTRYPOINT process[2].
+
+Example usage in a Dockerfile:
+
+```dockerfile
+FROM ubuntu:latest
+CMD ["echo", "Hello World"]
+```
+
+This sets the default behavior of the container to print "Hello World" when started, but allows users to easily override this command if needed.
+
+**Basic dockerifle with doocker core-commands**
+
 ```dockerfile
 # Use a Java 17 base image
 FROM openjdk:17-jdk-slim
@@ -12,11 +77,15 @@ COPY restaurant-0.0.1-SNAPSHOT.jar restVaadin.jar
 ENTRYPOINT ["java", "-jar", "restVaadin.jar"]
 ```
 
+Basic command to start:
+
 ```bash
 docker login
 docker build -t restvaadinapp .
 docker run -p 8080:8080 restvaadinapp
 ```
+
+Table basic commands and flags:
 
 | Command        | Flag            | Description                                                          |
 | -------------- | --------------- | -------------------------------------------------------------------- |
@@ -108,3 +177,49 @@ When you want to map multiple ports, you simply specify the `-p` option multip
      `docker ps`
    
    - If this command runs successfully without errors, your setup is complete.
+
+## Removing
+
+The main difference between `docker rm` and `docker rmi` is:
+
+1. `docker rm` is used to remove containers.
+2. `docker rmi` is used to remove images.
+
+`docker rmi` is an alias for `docker image rm. Both commands remove one or more images from the host node. When using `docker rmi` or ``docker image rm`:
+
+- If an image has multiple tags, using the tag as a parameter only removes that tag.
+- If the tag is the only one for the image, both the image and the tag are removed.
+- You can remove an image using its short or long ID, tag, or digest.
+- Using the `-f` flag with the image's ID will untag and remove all images that match the specified ID.
+
+To remove images based on a name pattern, you can use:
+
+```bash
+docker rmi $(docker images --format '{{.Repository}}:{{.Tag}}' | grep 'imagename')
+```
+
+This command lists all images, filters those containing 'imagename', and removes them.
+
+## Tag & push
+
+> These commands are  used when you want to share your local Docker image on Docker Hub or another container registry. 
+
+
+
+The tagging step prepares the image with the correct naming convention, and the push step uploads it to the remote repository.
+
+### Example
+
+Upload images to: https://hub.docker.com/repositories/w3564
+
+1. `docker tag books-backend:latest w3564/books-backend:latest`
+
+This command creates a new tag for an existing image. It takes the local image `books-backend:latest` and creates a new tag `w3564/books-backend:latest. This new tag includes the Docker Hub username `**w3564`**, which is necessary for pushing to Docker Hub.
+
+2. `docker push w3564/books-backend:latest`
+
+This command pushes the newly tagged image to Docker Hub. It uploads the image `w3564/books-backend:latest` to the Docker Hub repository associated with the username `w3564`.
+
+
+
+> Remember that you need to be logged in to Docker Hub (using `docker login`) with the appropriate credentials for the `w3564` account before you can successfully push the image.

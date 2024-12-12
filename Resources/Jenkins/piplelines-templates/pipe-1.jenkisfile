@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+    
+    tools {
+        jdk 'JDK21'
+        maven 'M3'
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/AlbertProfe/BooksPageable.git'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+        
+        stage('Archive') {
+            steps {
+                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+            }
+        }
+        
+    
+        
+        stage('Execute') {
+            steps {
+                sh 'java -jar target/*.jar --server.port=8088'
+            }   
+        }
+    }
+    
+}

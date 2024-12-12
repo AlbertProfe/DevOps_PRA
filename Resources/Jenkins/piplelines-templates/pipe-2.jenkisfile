@@ -1,0 +1,55 @@
+pipeline {
+    environment {
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub_id')
+        IMAGE_NAME = 'w3564/bookspageable'
+        IMAGE_TAG = "${BUILD_NUMBER}"
+    }
+
+    tools {
+        maven "M3"
+        jdk "JDK21"
+       
+    }
+    
+    agent any
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/AlbertProfe/BooksPageable.git'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+        
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    docker.build("${IMAGE_NAME}:${IMAGE_TAG}")
+                }
+            }
+        }
+        
+        stage('Push to DockerHub') {
+            steps {
+                script {
+                    docker.withRegistry('', 'dockerhub_id') {
+                        docker.image("${IMAGE_NAME}:${IMAGE_TAG}").push()
+                        docker.image("${IMAGE_NAME}:${IMAGE_TAG}").push('latest')
+                    }
+                }
+            }
+        }
+    }
+    
+    post {
+        always {
+            sh "docker rmi ${IMAGE_NAME}:${IMAGE_TAG}"
+            sh "docker rmi ${IMAGE_NAME}:latest"
+        }
+    }
+}
