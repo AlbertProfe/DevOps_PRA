@@ -121,3 +121,7 @@ Citations:
 [7] https://www.youtube.com/watch?v=zt6Dur9fVGk
 [8] https://www.reddit.com/r/aws/comments/l362qg/is_there_a_tool_for_limiting_aws_spending/
 [9] https://curc.readthedocs.io/en/latest/cloud/aws/lca1/billing/budget-actions.html
+
+### Desenvolupamente MF06-PRA06
+
+- Add images of resolve PRA06
