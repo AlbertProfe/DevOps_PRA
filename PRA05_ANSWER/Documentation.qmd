@@ -1,0 +1,13 @@
+Tasks
+1. [x] Pull Jenkins Docker Image
+2. [x] Build and Run Jenkins Container
+3. [x] Configure Jenkins Account
+4. [x] Install Basic Plugins
+5. [x] Create a Pipeline for Spring Boot Project
+6. [x] Ensure Docker is installed on the Jenkins server.
+7. [x] Configure Docker permissions for the Jenkins user.
+8. [x] Adjust the pipeline script according to your project structure and requirements.
+
+
+
+
