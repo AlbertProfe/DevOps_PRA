@@ -1,0 +1,165 @@
+Started by user CRhACKER7
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/pipe4
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Tool Install)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] git
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/pipe4/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/CrHacker7/docker-spring-boot.git # timeout=10
+Fetching upstream changes from https://github.com/CrHacker7/docker-spring-boot.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.5'
+ > git fetch --tags --force --progress -- https://github.com/CrHacker7/docker-spring-boot.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision 941204a429e0e1cc04cfb5bdee46309d6f043f55 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 941204a429e0e1cc04cfb5bdee46309d6f043f55 # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D master # timeout=10
+ > git checkout -b master 941204a429e0e1cc04cfb5bdee46309d6f043f55 # timeout=10
+Commit message: "first commit"
+ > git rev-list --no-walk 941204a429e0e1cc04cfb5bdee46309d6f043f55 # timeout=10
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ mvn clean package
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< io.company:BooksPageable >----------------------
+[INFO] Building library6 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ BooksPageable ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ BooksPageable ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ BooksPageable ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 7 source files with javac [debug release 21] to target/classes
+[INFO] Annotation processing is enabled because one or more processors were found
+  on the class path. A future release of javac may disable annotation processing
+  unless at least one processor is specified by name (-processor), or a search
+  path is specified (--processor-path, --processor-module-path), or annotation
+  processing is enabled explicitly (-proc:only, -proc:full).
+  Use -Xlint:-options to suppress this message.
+  Use -proc:none to disable annotation processing.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ BooksPageable ---
+[INFO] skip non existing resourceDirectory /var/jenkins_home/workspace/pipe4/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ BooksPageable ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.0.0:test (default-test) @ BooksPageable ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- jar:3.3.0:jar (default-jar) @ BooksPageable ---
+[INFO] Building jar: /var/jenkins_home/workspace/pipe4/target/BooksPageable-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:3.1.12:repackage (repackage) @ BooksPageable ---
+[INFO] Replacing main artifact /var/jenkins_home/workspace/pipe4/target/BooksPageable-0.0.1-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to /var/jenkins_home/workspace/pipe4/target/BooksPageable-0.0.1-SNAPSHOT.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  15.720 s
+[INFO] Finished at: 2024-12-15T19:21:47Z
+[INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Archive)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] archiveArtifacts
+Archiving artifacts
+Recording fingerprints
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Execute)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ java -jar target/BooksPageable-0.0.1-SNAPSHOT.jar --server.port=8088
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::               (v3.1.12)
+
+2024-12-15T19:21:57.145Z  INFO 2106 --- [           main] io.company.library.LibraryApplication    : Starting LibraryApplication v0.0.1-SNAPSHOT using Java 21.0.1 with PID 2106 (/var/jenkins_home/workspace/pipe4/target/BooksPageable-0.0.1-SNAPSHOT.jar started by jenkins in /var/jenkins_home/workspace/pipe4)
+2024-12-15T19:21:57.149Z  INFO 2106 --- [           main] io.company.library.LibraryApplication    : No active profile set, falling back to 1 default profile: "default"
+2024-12-15T19:21:59.878Z  INFO 2106 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-15T19:22:00.037Z  INFO 2106 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 136 ms. Found 1 JPA repository interface.
+2024-12-15T19:22:02.305Z  INFO 2106 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8088 (http)
+2024-12-15T19:22:02.350Z  INFO 2106 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-15T19:22:02.351Z  INFO 2106 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-12-15T19:22:02.850Z  INFO 2106 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-15T19:22:02.853Z  INFO 2106 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5495 ms
+2024-12-15T19:22:03.420Z  INFO 2106 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-15T19:22:03.608Z  INFO 2106 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.25.Final
+2024-12-15T19:22:03.614Z  INFO 2106 --- [           main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2024-12-15T19:22:04.613Z  INFO 2106 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-15T19:22:04.752Z  INFO 2106 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-15T19:22:05.356Z  INFO 2106 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-12-15T19:22:05.363Z  INFO 2106 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-15T19:22:05.454Z  WARN 2106 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-15T19:22:08.000Z  INFO 2106 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-15T19:22:08.141Z  INFO 2106 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-15T19:22:09.316Z  WARN 2106 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-15T19:22:10.475Z  INFO 2106 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8088 (http) with context path ''
+2024-12-15T19:22:10.549Z  INFO 2106 --- [           main] io.company.library.LibraryApplication    : Started LibraryApplication in 18.024 seconds (process running for 20.121)
+2024-12-15T19:22:10.559Z  INFO 2106 --- [           main] i.c.library.ApplicationCommandRunner     : Welcome to the createFakerBooks
+2024-12-15T19:22:11.767Z  INFO 2106 --- [           main] i.c.library.ApplicationCommandRunner     : finishing createFakerBooks ...
+Pausing
+Resuming
