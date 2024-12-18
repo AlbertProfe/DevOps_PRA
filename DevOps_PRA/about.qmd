@@ -1,0 +1,25 @@
+---
+title: "About"
+---
+
+About this site
+
+Diferent styles
+
+# Header 1
+
+## Header 2
+
+### Header 3
+
+#### Header 4
+
+*italics*, **bold**, ***bold italics***
+
+superscript^2^ / subscript~2~
+
+~~strikethrough~~
+
+`verbatim code`
+
+
