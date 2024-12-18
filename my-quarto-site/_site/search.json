@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "my-quarto-site",
+    "section": "",
+    "text": "#Alberte’s Quarto\nflowchart TD\n    A --&gt; B\n    B --&gt; C\n    C --&gt; D"
+  },
+  {
+    "objectID": "index.html#check-it-out",
+    "href": "index.html#check-it-out",
+    "title": "my-quarto-site",
+    "section": "Check it out",
+    "text": "Check it out\nMy first callout"
+  },
+  {
+    "objectID": "test.html",
+    "href": "test.html",
+    "title": "Mermaid Test",
+    "section": "",
+    "text": "Test de Mermaid\ngraph TD\n    A[Start] --&gt; B{Decision}\n    B --&gt;|Yes| C[Continue]\n    B --&gt;|No| D[Stop]"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  }
+]

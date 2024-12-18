@@ -1,0 +1,19 @@
+---
+title: "my-quarto-site"
+author: "Alberte Martínez"
+date: today
+---
+
+#Alberte's Quarto
+
+:::{.callout-tip title="Testing callouts"}
+## Check it out
+My first callout
+:::
+
+```{mermaid}
+flowchart TD
+    A --> B
+    B --> C
+    C --> D
+```
