@@ -1,0 +1,38 @@
+---
+title: "Indice"
+---
+
+## Documentacion cureso DevOPs
+
+
+
+* Quarto Fuentes
+    +  Documentacion pagina  [Albert ](https://albertprofe.dev)
+    +  Documentacion oficial Quarto [Quarto](https://quarto.org)<br>
+         
+* GitHub Fuentes
+    +  Documentacion pagina  [Albert ](https://albertprofe.dev)
+    +  Documentacion oficial GitHub [GitH](https://docs.github.com/es)
+
+* DockerFuentes
+    +  Documentacion pagina  [ Albert ](https://albertprofe.dev/devops/devops-tools-docker.html)
+    +  Documentacion oficial GitHub [ Dockerdocs ](https://docs.docker.com/engine/install/ubuntu/) 
+
+::: {.callout-note}
+## Recursos del Laboratorio
+Empezamos el curso con la Instalacion de Linux Mint [Linux Mint](https://www.linuxmint.com/download.php)<br>
+En una maquina Virtual de [ Virtual box](https://www.virtualbox.org/wiki/)<br>
+Trabajaremos Con el IDE [ Visual Studio Code](https://code.visualstudio.com/download)<br><br>
+:::
+
+
+::: {.callout-tip}
+#### Autor:
+  - Pedro Cecilia<br>
+  - Cifo la VIoleta<br>
+:::
+
+
+::: {#special .sidebar2}
+
+:::
