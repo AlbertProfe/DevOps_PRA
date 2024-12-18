@@ -1,0 +1,43 @@
+---
+title: "Streams"
+---
+
+**Divisible by 3**
+```
+long numbersDivisibleByThree = inputs.stream()
+    .mapToInt(s -> Integer.valueOf(s))
+    .filter(number -> number % 3 == 0)
+    .count();
+```
+
+**Divisible by 3**
+```
+long numbersDivisibleByThree = inputs.stream()
+    .mapToInt(s -> Integer.valueOf(s))
+    .filter(number -> number % 3 == 0)
+    .count();
+```
+
+**Average**
+```
+double average = inputs.stream()
+    .mapToInt(s -> Integer.valueOf(s))
+    .average()
+    .getAsDouble();
+```
+
+**Filter and create another list with filtered values**
+```
+ArrayList<Integer> values = list.stream()
+    .filter(value -> value > 5)
+    .map(value -> value * 2)
+    .collect(Collectors.toCollection(ArrayList::new));
+```
+
+**Print all values in collections**
+```
+values.stream()
+    .filter(value -> value % 2 == 0)
+    .forEach(value -> System.out.println(value));
+```
+

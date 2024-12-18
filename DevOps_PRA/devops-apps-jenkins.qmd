@@ -1,0 +1,110 @@
+---
+title: "Jenkins"
+---
+
+
+Para descargar, crear y lanzar un contenedor con Jenkins:
+```
+docker run -d \
+ --name jenkins \
+ -p 8080:8080 \
+ -p 50000:50000 \
+ -v jenkins_home:/var/jenkins_home \
+ -v /var/run/docker.sock:/var/run/docker.sock \
+ --privileged \
+ jenkins/jenkins:lts
+
+```
+> **IMPORTANTE:**
+> Para que Jenkins pueda acceder a Docker, este tiene que estar instalado dentro del contenedor mismo de Jenkins.
+
+Acceder a la consola de Jenkins en su:
+```
+docker exec -u root -it jenkins2 bash
+```
+
+Instalar Docker:
+```
+curl https://get.docker.com/ > dockerinstall && chmod 777 dockerinstall && ./dockerinstall
+```
+
+Dentro de Jenkins todavía, añadimos el usuario Jenkins al grupo Docker:
+```
+usermod -aG docker jenkins
+```
+
+Cambiar provilegios de docker.sock:
+```
+chmod 666 /var/run/docker.sock
+```
+
+> **IMPORTANTE:**
+> Es posible que se tengan que hacer los 2 últimos pasos cada vez que se reinicia la máquina y se levanta jenkins.
+
+Se tiene que reiniciar el contenedor de Jenkins
+
+
+**COMANDOS ÚTILES:**
+
+Ver todos los contenedores:
+```
+docker -ps a
+```
+
+Eliminar todas las imagenes y contenedores:
+```
+docker rm $(docker ps -aq) && docker rmi $(docker images -q)
+```
+
+Hay que tener instalado Docker Pipeline.
+
+El Repositorio de GitHub tiene que contener el proyecto completo, no únicamente un .jar además del Dockerfile y del pom.xml de Spring.
+
+Para los JDK de Java:
+
+![JDK11](resources/images/Jenkins_JDK_Screenshot_2024-12-04_21-25-34.png){.lightbox}
+![JDK21](resources/images/Jenkins_JDK_Screenshot_2024-12-04_21-26-15.png){.lightbox}
+
+
+Generamos una nueva pipeline en Jenkins y metemos el código. Atención con los puertos, que no coincidan con los de Jenkins:
+
+```
+pipeline {
+    agent any
+
+    tools {
+        maven 'M3'
+        jdk 'java-21'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/isaac-diez/BooksPageable.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                script {
+                    docker.build("pageablebooks:${env.BUILD_ID}")
+                }
+            }
+        }
+
+        stage('Docker Run') {
+            steps {
+                script {
+                    docker.image("pageablebooks:${env.BUILD_ID}").run('-p 8088:8088')
+                }
+            }
+        }
+    }
+}
+```
