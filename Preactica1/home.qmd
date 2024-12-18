@@ -1,0 +1,14 @@
+
+title: "Indice"
+
+```{mermaid}
+flowchart LR
+  A[Client] --> B(Load Balancer)
+  B --> C{Decision}
+  C --> D[Server one]
+  C --> E[Esrver two]
+  
+```
+
+
+
