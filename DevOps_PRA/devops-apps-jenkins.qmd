@@ -1,0 +1,66 @@
+---
+title: "Jenkins"
+---
+
+Para descargar, crear y lanzar un contenedor con Jenkins:
+```
+docker run -d -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock --name jenkins jenkins/jenkins:lts
+```
+
+Eliminar todas las imagenes y contenedores:
+```
+docker rm $(docker ps -aq) && docker rmi $(docker images -q)
+```
+
+Hay que tener instalado Docker Pipeline.
+
+El Repositorio de GitHub tiene que contener el proyecto completo, no únicamente un .jar además del Dockerfile y del pom.xml de Spring.
+
+Para los JDK de Java:
+
+![JDK11](resources/images/Jenkins_JDK_Screenshot_2024-12-04_21-25-34.png){.lightbox}
+![JDK21](resources/images/Jenkins_JDK_Screenshot_2024-12-04_21-26-15.png){.lightbox}
+
+
+Generamos una nueva pipeline en Jenkins y metemos el código:
+
+```
+pipeline {
+    agent any
+
+    tools {
+        maven 'M3'
+        jdk 'java-21'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/isaac-diez/BooksPageable.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                script {
+                    docker.build("pageablebooks:${env.BUILD_ID}")
+                }
+            }
+        }
+
+        stage('Docker Run') {
+            steps {
+                script {
+                    docker.image("pageablebooks:${env.BUILD_ID}").run('-p 8080:8080')
+                }
+            }
+        }
+    }
+}
+```
