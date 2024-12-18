@@ -1,0 +1,22 @@
+project: 
+  type: website
+
+website:
+  title: "Quarto"
+  navbar:
+    left:
+      - text: Home
+        href: my-quarto-site.qmd
+      - text: About
+        href: about.qmd
+      - text: PRA-01
+        href: pra-01.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+extensions:
+  - mermaid
