@@ -1,0 +1,32 @@
+## MF04-PRA04: Docker Setup and Containerization for Spring Boot and React Applications
+
+### CIFO La Violeta - DevOps IFCT0116-24 MF04
+
+### Objectius
+
+- Saber instal·lar Docker
+- Saber dockeritzar una aplicació de frontend React (crear un Dockerfile, build la image i run el container)
+- Saber dockeritzar una aplicació de backend Springboot
+- Saber pujar les imatges a Docker Hub (crear-se un account)
+- Comprovar que funcionin les aplicacions
+
+### Passos aproximats
+
+![](images/1-react-dockerfile.png)
+
+![](images/2-build-react-image.png)
+
+![](images/3-run.png)
+
+
+![](images/2-build-image.png)
+
+![](images/1-dockerfile.png)
+
+![](images/final.png)
+
+![](images/github.png)
+
+![](images/tagging-image-backend.png)
+
+![](images/push-image.png)
