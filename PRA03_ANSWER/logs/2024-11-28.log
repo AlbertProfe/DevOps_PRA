@@ -1,0 +1,38 @@
+01-[11:33:59] COMMIT MESSAGE: Changed something to test publish_quarto.sh
+01-[11:33:59] OK: git add .
+01-[11:33:59] OK: git commit -m "Changed something to test publish_quarto.sh"
+01-[11:34:00] OK: git push origin master
+01-[11:34:08] OK: quarto publish gh-pages --no-prompt
+
+02-[11:37:11] COMMIT MESSAGE: Changed something more in about.qmd to test publish_quarto.sh
+02-[11:37:11] OK: git add .
+02-[11:37:11] OK: git commit -m "Changed something more in about.qmd to test publish_quarto.sh"
+02-[11:37:12] OK: git push origin master
+02-[11:37:19] OK: quarto publish gh-pages --no-prompt
+
+03-[11:43:38] COMMIT MESSAGE: permission to execute publish_quarto.sh
+03-[11:43:38] OK: git add .
+03-[11:43:38] OK: git commit -m "permission to execute publish_quarto.sh"
+03-[11:43:39] OK: git push origin master
+03-[11:43:46] OK: quarto publish gh-pages --no-prompt
+
+04-[12:03:12] COMMIT MESSAGE: correct publish_quarto.sh
+04-[12:03:12] OK: git add .
+04-[12:03:12] OK: git commit -m "correct publish_quarto.sh"
+04-[12:03:14] OK: git push origin master
+04-[12:03:20] OK: quarto publish gh-pages --no-prompt
+
+05-[12:03:58] COMMIT MESSAGE: check what happens if there is nothing to commit
+05-[12:03:58] INFO: There are no changes to commit.
+
+06-[12:06:16] COMMIT MESSAGE: mv .git .git.bak to check error when there is no repo
+06-[12:06:16] ERROR: git branch --show-current
+
+07-[12:07:05] COMMIT MESSAGE: mv .git.bak .git to check info when there is repo but no changes
+07-[12:07:05] INFO: There are no changes to commit.
+
+08-[12:10:14] COMMIT MESSAGE: updated pull request message
+08-[12:10:14] OK: git add .
+08-[12:10:14] OK: git commit -m "updated pull request message"
+08-[12:10:16] OK: git push origin master
+08-[12:10:28] OK: quarto publish gh-pages --no-prompt
