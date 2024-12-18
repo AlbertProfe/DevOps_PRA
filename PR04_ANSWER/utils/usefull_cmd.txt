@@ -1,0 +1,19 @@
+* Image/Container
+
+- You can not delete an image if there is a container created.
+- The container has a different ID than the image.
+- Docker will put an aleatory name to your container if you do not put a name.
+- Docker rm: is for delete a container.
+- Docker rmi: is for the image.
+
+
+* Pushing your container to DockerHub
+
+- First add a tag to your container.
+- Then, you can push it to your DockerHub.
+
+
+* To verify an error
+
+- Docker logs: it will give you an info of your container.
+
