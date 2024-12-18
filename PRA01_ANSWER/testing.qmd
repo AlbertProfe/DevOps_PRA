@@ -1,0 +1,146 @@
+# Testing
+
+## Testing basic markdown
+
+### Italic
+
+*Italic text*
+
+### Bold
+
+**Bold text**
+
+### Italic + Bold 
+
+***Italic and bold text***
+
+### Superscript
+
+Superscript number^2^ (only works with numbers)
+
+### Subscript
+
+Subscript number~2~ (only works with numbers)
+
+### Strikethrough
+~~Strikethrough text~~
+
+## Table
+
+| Right | Left | Default | Center |
+|------:|:-----|---------|:------:|
+|   12  |  12  |    12   |    12  |
+|  123  |  123 |   123   |   123  |
+|    1  |    1 |     1   |     1  |
+
+## Call-outs
+
+There are five types of callouts:  
+
+### 1. `note`
+
+::: {.callout-note}
+Remember to cash-in the $1 million check
+:::
+
+### 2. `tip`
+
+::: {.callout-tip}
+If you find a toilet in your dream, don't use it
+:::
+
+### 3. `warning`
+
+::: {.callout-warning}
+Don't trust the teacher
+:::
+
+### 4. `caution`
+
+::: {.callout-caution}
+Mind the gap
+:::
+
+### 5. `important`.
+
+::: {.callout-important}
+This isn't so important
+:::
+
+### Bonus: atributos extra
+
+#### title
+
+::: {.callout-tip title="Tip with Title"}
+This is a callout with a title.
+:::
+
+#### collapse
+
+options: `true`, `false`
+
+::: {.callout-tip collapse=true}
+##### Expand To Learn About Collapse
+
+This is an example of a 'folded' caution callout that can be expanded by the user. You can use `collapse="true"` to collapse it by default or `collapse="false"` to make a collapsible callout that is expanded by default.
+:::
+
+#### appearence
+
+options: `default`, `simple`, `minimal`
+
+##### simple
+
+::: {.callout-note appearance="simple"}
+
+###### Pay Attention
+
+Using callouts is an effective way to highlight content that your reader give special consideration or attention.
+
+:::
+
+##### minimal
+
+::: {.callout-note appearance="minimal"}
+##### Pay Attention
+Using callouts is an effective way to highlight content that your reader give special consideration or attention.
+:::
+
+
+
+#### callout-icon
+
+::: {.callout-note icon=false}
+##### Pay Attention
+No icon in this callout
+:::
+
+
+## Vídeo
+
+{{< video https://www.youtube.com/watch?v=22rhgnfTCPA
+    title="Cómo (y cuándo) utilizar una API Gateway para casos complejos CodelyTV"
+    start="0"
+>}}
+
+
+
+
+## Código python
+
+```{.python filename="run.py"}
+# Program to generate a random number between 0 and 9
+import random
+
+print(random.randint(0,9))
+```
+
+## Mermaid Diagram
+
+```{mermaid}
+flowchart LR
+  A[Hard edge] --> B(Round edge)
+  B --> C{Decision}
+  C --> D[Result one]
+  C --> E[Result two]
+```
