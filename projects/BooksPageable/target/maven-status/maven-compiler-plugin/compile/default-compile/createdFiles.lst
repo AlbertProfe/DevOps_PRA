@@ -1,0 +1,9 @@
+io/company/library/CorsConfig.class
+io/company/library/LibraryRestController.class
+io/company/library/BookService.class
+io/company/library/LibraryApplication.class
+io/company/library/ApplicationCommandRunner.class
+io/company/library/Book.class
+io/company/library/BookController.class
+io/company/library/BookRepository.class
+io/company/library/LibraryApplication$1.class
