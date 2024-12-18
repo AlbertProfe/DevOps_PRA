@@ -1,0 +1,19 @@
+
+project:
+  type: website
+
+website:
+  title: "Laboratorio 1"
+  navbar:
+    left:
+      - href: home.qmd
+        text: Home
+    
+      - href: index.qmd
+        text: Indice
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
