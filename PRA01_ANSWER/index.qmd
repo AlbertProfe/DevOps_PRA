@@ -1,0 +1,7 @@
+---
+title: "myQuartoProj"
+author: "CRhACKER7"
+---
+
+# My Quarto Project with GitHub Pages
+[click here!](https://github.com/CrHacker7/Quarto-project)
