@@ -1,0 +1,41 @@
+---
+title: "Install a shared drive in Ubuntu"
+---
+
+Bash script to install a shared drive in Ubuntu:
+
+```
+#!/bin/bash
+
+# Configuración
+MOUNT_POINT="/mnt/aranisaac"
+NETWORK_SHARE="//192.168.3.1/ARANISAAC"
+
+echo "Configurando el montaje automático de la unidad en red..."
+
+# Crear el punto de montaje si no existe
+if [ ! -d "$MOUNT_POINT" ]; then
+    echo "Creando el punto de montaje en $MOUNT_POINT..."
+    sudo mkdir -p "$MOUNT_POINT"
+fi
+
+# Verificar si ya está en /etc/fstab
+if grep -qs "$MOUNT_POINT" /etc/fstab; then
+    echo "El punto de montaje ya está configurado en /etc/fstab."
+else
+    echo "Agregando la unidad de red a /etc/fstab..."
+    echo "$NETWORK_SHARE $MOUNT_POINT cifs username=isaac,password=Navarro10,vers=2.0,uid=$(id -u),gid=$(id -g),iocharset=utf8 0 0" | sudo tee -a /etc/fstab
+fi
+
+# Montar la unidad inmediatamente
+echo "Montando la unidad de red..."
+sudo mount -a
+
+# Verificar si el montaje fue exitoso
+if mountpoint -q "$MOUNT_POINT"; then
+    echo "Unidad montada correctamente en $MOUNT_POINT."
+else
+    echo "Error al montar la unidad. Verifica la configuración."
+fi
+
+```
