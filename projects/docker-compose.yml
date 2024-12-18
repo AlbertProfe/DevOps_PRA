@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  backend:
+    build: 
+      context: /home/alex/projects/BooksPageable
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - library-network
+
+  frontend:
+    build: 
+      context: /home/alex/projects/BooksFrontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:80"
+    networks:
+      - library-network
+    depends_on:
+      - backend
+
+networks:
+  library-network:
+    driver: bridge
