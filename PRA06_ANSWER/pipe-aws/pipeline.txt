@@ -1,0 +1,45 @@
+pipeline {
+    environment {
+        DOCKERHUB_IMAGE = 'crhacker7/books-pageable-backend:latest'
+        ECR_REGISTRY = 'public.ecr.aws/z4y4h0k9'
+        ECR_REPOSITORY = 'spring-boot-app'
+        IMAGE_TAG = "${BUILD_NUMBER}"
+        AWS_REGION = 'us-east-1' // Public ECR repositories are only available in us-east-1
+    }
+
+    agent any
+
+    stages {
+        stage('Pull from DockerHub') {
+            steps {
+                sh "docker pull ${DOCKERHUB_IMAGE}"
+            }
+        }
+
+        stage('Tag for ECR') {
+            steps {
+               
+                sh "docker tag ${DOCKERHUB_IMAGE} ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}"
+                sh "docker tag ${DOCKERHUB_IMAGE} ${ECR_REGISTRY}/${ECR_REPOSITORY}:latest"
+            }
+        }
+
+        stage('Push to ECR') {
+            steps {
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'awscredentials_id']]) {
+                    sh "aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${ECR_REGISTRY}"
+                    sh "docker push ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}"
+                    sh "docker push ${ECR_REGISTRY}/${ECR_REPOSITORY}:latest"
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            sh "docker rmi ${DOCKERHUB_IMAGE}"
+            sh "docker rmi ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}"
+            sh "docker rmi ${ECR_REGISTRY}/${ECR_REPOSITORY}:latest"
+        }
+    }
+}

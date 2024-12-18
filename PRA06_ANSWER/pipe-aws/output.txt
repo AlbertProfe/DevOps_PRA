@@ -1,0 +1,100 @@
+Started by user CRhACKER7
+
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins
+ in /var/jenkins_home/workspace/pipe3-aws-pra
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Pull from DockerHub)
+[Pipeline] sh
++ docker pull crhacker7/books-pageable-backend:latest
+latest: Pulling from crhacker7/books-pageable-backend
+a803e7c4b030: Already exists
+b4972576c83d: Already exists
+af800cd8441e: Already exists
+b2adc153a57b: Already exists
+3e7eeb32da62: Already exists
+Digest: sha256:b24b9330527b9a0b5a251bfd5c278fa4c43b92fb3ad1b9ccf2bdacc9735db7fa
+Status: Downloaded newer image for crhacker7/books-pageable-backend:latest
+docker.io/crhacker7/books-pageable-backend:latest
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Tag for ECR)
+[Pipeline] sh
++ docker tag crhacker7/books-pageable-backend:latest public.ecr.aws/z4y4h0k9/spring-boot-app:3
+[Pipeline] sh
++ docker tag crhacker7/books-pageable-backend:latest public.ecr.aws/z4y4h0k9/spring-boot-app:latest
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Push to ECR)
+[Pipeline] withCredentials
+Masking supported pattern matches of $AWS_ACCESS_KEY_ID or $AWS_SECRET_ACCESS_KEY
+[Pipeline] {
+[Pipeline] sh
++ aws ecr-public get-login-password --region us-east-1
++ docker login --username AWS --password-stdin public.ecr.aws/z4y4h0k9
+WARNING! Your password will be stored unencrypted in /var/jenkins_home/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credential-stores
+
+Login Succeeded
+[Pipeline] sh
++ docker push public.ecr.aws/z4y4h0k9/spring-boot-app:3
+The push refers to repository [public.ecr.aws/z4y4h0k9/spring-boot-app]
+974ed95b9915: Preparing
+f82750e12aa6: Preparing
+659a8c4ba776: Preparing
+0ac7ecf8a41c: Preparing
+d310e774110a: Preparing
+d310e774110a: Layer already exists
+0ac7ecf8a41c: Layer already exists
+659a8c4ba776: Layer already exists
+f82750e12aa6: Pushed
+974ed95b9915: Pushed
+3: digest: sha256:b24b9330527b9a0b5a251bfd5c278fa4c43b92fb3ad1b9ccf2bdacc9735db7fa size: 1371
+[Pipeline] sh
++ docker push public.ecr.aws/z4y4h0k9/spring-boot-app:latest
+The push refers to repository [public.ecr.aws/z4y4h0k9/spring-boot-app]
+974ed95b9915: Preparing
+f82750e12aa6: Preparing
+659a8c4ba776: Preparing
+0ac7ecf8a41c: Preparing
+d310e774110a: Preparing
+f82750e12aa6: Layer already exists
+659a8c4ba776: Layer already exists
+d310e774110a: Layer already exists
+974ed95b9915: Layer already exists
+0ac7ecf8a41c: Layer already exists
+latest: digest: sha256:b24b9330527b9a0b5a251bfd5c278fa4c43b92fb3ad1b9ccf2bdacc9735db7fa size: 1371
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] sh
++ docker rmi crhacker7/books-pageable-backend:latest
+Untagged: crhacker7/books-pageable-backend:latest
+Untagged: crhacker7/books-pageable-backend@sha256:b24b9330527b9a0b5a251bfd5c278fa4c43b92fb3ad1b9ccf2bdacc9735db7fa
+[Pipeline] sh
++ docker rmi public.ecr.aws/z4y4h0k9/spring-boot-app:3
+Untagged: public.ecr.aws/z4y4h0k9/spring-boot-app:3
+[Pipeline] sh
++ docker rmi public.ecr.aws/z4y4h0k9/spring-boot-app:latest
+Untagged: public.ecr.aws/z4y4h0k9/spring-boot-app:latest
+Untagged: public.ecr.aws/z4y4h0k9/spring-boot-app@sha256:b24b9330527b9a0b5a251bfd5c278fa4c43b92fb3ad1b9ccf2bdacc9735db7fa
+Deleted: sha256:fe0cc31eaa48d12ff6fd1992399b47e22385cd520c20f95d24ee004aad606893
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
+
