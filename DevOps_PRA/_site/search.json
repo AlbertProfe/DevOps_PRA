@@ -1,0 +1,100 @@
+[
+  {
+    "objectID": "devops-git-actions.html",
+    "href": "devops-git-actions.html",
+    "title": "Setting up and using GitActions",
+    "section": "",
+    "text": "Setting up and using GitActions\nPublish Action\nBefore configuring the publishing action, it’s important that you run quarto publish gh-pages locally, once. This will create the _publish.yml configuration required by the subsequent invocations of the GitHub Action. To do this, run the following from within your project:\nquarto publish gh-pages\nOnce you’ve completed a local publish, add a publish.yml GitHub Action to your project by creating this YAML file and saving it to .github/workflows/publish.yml:\n.github/workflows/publish.yml\non: workflow_dispatch: push: branches: main\nname: Quarto Publish\njobs: build-deploy: runs-on: ubuntu-latest permissions: contents: write steps: - name: Check out repository uses: actions/checkout@v4\n  - name: Set up Quarto\n    uses: quarto-dev/quarto-actions/setup@v2\n\n  - name: Render and Publish\n    uses: quarto-dev/quarto-actions/publish@v2\n    with:\n      target: gh-pages\n    env:\n      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "My 1st Quarto website",
+    "section": "",
+    "text": "To learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n\nThis is a sample webpage written in Markdown. Below, you’ll find various sections demonstrating Markdown features. Feel free to modify or replace this content.\n\n\n\n\n\n\nInteractive Design\nYour webpage adapts to user inputs.\n\nEasy Navigation\nIncludes intuitive menus and buttons.\n\nScalable Features\nExpandable with plugins and custom scripts.\n\n\n\n\n\nFast Load Times\nOptimized for quick rendering.\n\nMobile-Friendly\nWorks seamlessly on all devices.\n\nSecure\nProtects user data with advanced encryption.\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nNote that there are five types of callouts, including: note, warning, important, tip, and caution.\n\n\n\n\n\n\n\n\nTip with Title\n\n\n\nThis is an example of a callout with a title.\n\n\n\n\n\n\n\n\nExpand To Learn About Collapse\n\n\n\n\n\nThis is an example of a ‘folded’ caution callout that can be expanded by the user. You can use collapse=\"true\" to collapse it by default or collapse=\"false\" to make a collapsible callout that is expanded by default."
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "My 1st Quarto website",
+    "section": "",
+    "text": "This is a sample webpage written in Markdown. Below, you’ll find various sections demonstrating Markdown features. Feel free to modify or replace this content."
+  },
+  {
+    "objectID": "index.html#features-of-the-page",
+    "href": "index.html#features-of-the-page",
+    "title": "My 1st Quarto website",
+    "section": "",
+    "text": "Interactive Design\nYour webpage adapts to user inputs.\n\nEasy Navigation\nIncludes intuitive menus and buttons.\n\nScalable Features\nExpandable with plugins and custom scripts.\n\n\n\n\n\nFast Load Times\nOptimized for quick rendering.\n\nMobile-Friendly\nWorks seamlessly on all devices.\n\nSecure\nProtects user data with advanced encryption."
+  },
+  {
+    "objectID": "index.html#call-outs",
+    "href": "index.html#call-outs",
+    "title": "My 1st Quarto website",
+    "section": "",
+    "text": "Note\n\n\n\nNote that there are five types of callouts, including: note, warning, important, tip, and caution.\n\n\n\n\n\n\n\n\nTip with Title\n\n\n\nThis is an example of a callout with a title.\n\n\n\n\n\n\n\n\nExpand To Learn About Collapse\n\n\n\n\n\nThis is an example of a ‘folded’ caution callout that can be expanded by the user. You can use collapse=\"true\" to collapse it by default or collapse=\"false\" to make a collapsible callout that is expanded by default."
+  },
+  {
+    "objectID": "index.html#images",
+    "href": "index.html#images",
+    "title": "My 1st Quarto website",
+    "section": "Images",
+    "text": "Images\n\nStandard Image\n\n\n\nAn elephant"
+  },
+  {
+    "objectID": "index.html#mermaid-diagram",
+    "href": "index.html#mermaid-diagram",
+    "title": "My 1st Quarto website",
+    "section": "Mermaid Diagram",
+    "text": "Mermaid Diagram\nVisualize workflows or processes easily with Mermaid diagrams.\n\n\n\n\n\ngraph TD\n    A[Start] --&gt; B{Decision?}\n    B --&gt;|Yes| C[Proceed]\n    B --&gt;|No| D[Stop]\n    C --&gt; E[End]\n\n\n\n\n\n\n\n\n\nAn elephant"
+  },
+  {
+    "objectID": "devops-apps-plex.html",
+    "href": "devops-apps-plex.html",
+    "title": "Install Plex in Ubuntu",
+    "section": "",
+    "text": "Bash script to install Plex in Ubuntu:\n#!/bin/bash\n\n# Variables\nPLEX_REPO_URL=\"https://downloads.plex.tv/plex-media-server-new/1.32.5.7349-8f4248874/debian/plexmediaserver_1.32.5.7349-8f4248874_amd64.deb\"\n\n# Paso 1: Actualizar e instalar dependencias\necho \"Actualizando el sistema...\"\nsudo apt update && sudo apt upgrade -y\n\n# Paso 4: Descargar e instalar Plex Media Server\necho \"Descargando e instalando Plex Media Server...\"\nwget -q \"$PLEX_REPO_URL\" -O plexmediaserver.deb\nsudo dpkg -i plexmediaserver.deb\n\n# Paso 5: Iniciar el servicio de Plex y habilitarlo en el arranque\necho \"Iniciando y habilitando Plex Media Server...\"\nsudo systemctl enable plexmediaserver\nsudo systemctl start plexmediaserver\n\n# Confirmación del estado del servicio\nsudo systemctl status plexmediaserver --no-pager\n\n# Limpiar el archivo de instalación\nrm -f plexmediaserver.deb\n\necho \"Instalación de Plex Media Server completa.\""
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\nDiferent styles"
+  },
+  {
+    "objectID": "about.html#header-2",
+    "href": "about.html#header-2",
+    "title": "About",
+    "section": "Header 2",
+    "text": "Header 2\n\nHeader 3\n\nHeader 4\nitalics, bold, bold italics\nsuperscript2 / subscript2\nstrikethrough\nverbatim code"
+  },
+  {
+    "objectID": "devops-apps-shared-network-drive.html",
+    "href": "devops-apps-shared-network-drive.html",
+    "title": "Install a shared drive in Ubuntu",
+    "section": "",
+    "text": "Bash script to install a shared drive in Ubuntu:\n#!/bin/bash\n\n# Configuración\nMOUNT_POINT=\"/mnt/aranisaac\"\nNETWORK_SHARE=\"//192.168.3.1/ARANISAAC\"\n\necho \"Configurando el montaje automático de la unidad en red...\"\n\n# Crear el punto de montaje si no existe\nif [ ! -d \"$MOUNT_POINT\" ]; then\n    echo \"Creando el punto de montaje en $MOUNT_POINT...\"\n    sudo mkdir -p \"$MOUNT_POINT\"\nfi\n\n# Verificar si ya está en /etc/fstab\nif grep -qs \"$MOUNT_POINT\" /etc/fstab; then\n    echo \"El punto de montaje ya está configurado en /etc/fstab.\"\nelse\n    echo \"Agregando la unidad de red a /etc/fstab...\"\n    echo \"$NETWORK_SHARE $MOUNT_POINT cifs username=isaac,password=Navarro10,vers=2.0,uid=$(id -u),gid=$(id -g),iocharset=utf8 0 0\" | sudo tee -a /etc/fstab\nfi\n\n# Montar la unidad inmediatamente\necho \"Montando la unidad de red...\"\nsudo mount -a\n\n# Verificar si el montaje fue exitoso\nif mountpoint -q \"$MOUNT_POINT\"; then\n    echo \"Unidad montada correctamente en $MOUNT_POINT.\"\nelse\n    echo \"Error al montar la unidad. Verifica la configuración.\"\nfi"
+  },
+  {
+    "objectID": "links.html",
+    "href": "links.html",
+    "title": "Links",
+    "section": "",
+    "text": "Links in this site"
+  },
+  {
+    "objectID": "docs.html",
+    "href": "docs.html",
+    "title": "Docs",
+    "section": "",
+    "text": "Docs in this site"
+  },
+  {
+    "objectID": "devops-apps-transmission.html",
+    "href": "devops-apps-transmission.html",
+    "title": "Transmission",
+    "section": "",
+    "text": "Bash script to install Transmission in Ubuntu:\n#!/bin/bash\n\n# Configuración del script\nTRANSMISSION_CONFIG_DIR=\"/etc/transmission-daemon\"\nDOWNLOADS_DIR=\"/mnt/aranisaac/TVShows\"\n\n# Instalación de Transmission\necho \"Instalando Transmission...\"\nsudo apt update\nsudo apt install -y transmission-cli transmission-common transmission-daemon cifs-utils\n\n#Configuración de Transmission\necho \"Configurando Transmission...\"\n\n# Detener el servicio para hacer cambios en la configuración\nsudo systemctl stop transmission-daemon\n\n# Modificar archivo de configuración settings.json\nTRANSMISSION_SETTINGS=\"$TRANSMISSION_CONFIG_DIR/settings.json\"\nsudo sed -i \"s|\\\"download-dir\\\": \\\".*\\\"|\\\"download-dir\\\": \\\"$DOWNLOADS_DIR\\\"|g\" \"$TRANSMISSION_SETTINGS\"\nsudo sed -i 's/\"rpc-authentication-required\":.*/\"rpc-authentication-required\": true,/g' \"$TRANSMISSION_SETTINGS\"\nsudo sed -i 's/\"rpc-username\":.*/\"rpc-username\": \"transmission\",/g' \"$TRANSMISSION_SETTINGS\"\nsudo sed -i 's/\"rpc-password\":.*/\"rpc-password\": \"transmission\",/g' \"$TRANSMISSION_SETTINGS\"\nsudo sed -i 's/\"rpc-whitelist-enabled\":.*/\"rpc-whitelist-enabled\": false,/g' \"$TRANSMISSION_SETTINGS\"\n\n# Cambiar propietario del directorio de descargas\nsudo chown -R debian-transmission:debian-transmission \"$DOWNLOADS_DIR\"\n\n# Reiniciar Transmission para aplicar la configuración\nsudo systemctl start transmission-daemon\nsudo systemctl enable transmission-daemon\n\necho \"Instalación y configuración de Transmission completadas. Las descargas se guardarán en $DOWNLOADS_DIR.\""
+  }
+]
