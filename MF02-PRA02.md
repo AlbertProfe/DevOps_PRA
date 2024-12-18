@@ -88,3 +88,7 @@ Citations:
 [7] https://www.youtube.com/watch?v=arzBRW5XIkg
 [8] https://github.com/quarto-dev/quarto-actions/blob/main/examples/example-01-basics.md
 [9] https://github.com/marketplace/actions/quarto-render
+
+### Practica MF02-PRA02:
+<https://github.com/emiralya8/Pract01Quarto/commit/6e063ec9a99e8f3f322063289918d07e55e9a3f4>
+<https://github.com/emiralya8/Pract01Quarto>
