@@ -1,0 +1,29 @@
+---
+title: "About"
+---
+
+About my technologies
+
+
+# Tecnologías
+
+| **Tecnología**              | **Nivel**          | **Comentarios**                                   |
+|-----------------------------|--------------------|--------------------------------------------------|
+| **Spring Boot**              | Intermedio         | Framework para aplicaciones web en Java.         |
+| **JPA / Hibernate**          | Intermedio         | Manejo de bases de datos en aplicaciones Java.   |
+| **H2**                       | Básico             | Base de datos ligera utilizada en pruebas.       |
+| **AWS**                      | Básico             | Conocimientos en servicios de nube de Amazon.    |
+| **Kubernetes**               | Básico             | Orquestación de contenedores.                    |
+| **Docker**                   | Intermedio         | Contenedores para aplicaciones.                  |
+| **Jenkins**                  | Básico             | Herramienta de integración continua.             |
+| **Git/GitHub**               | Avanzado           | Control de versiones y gestión de código.        |
+| **Quarto**                   | Básico             | Creación de documentación interactiva.           |
+| **Mermaid**                  | Básico             | Diagramas y visualizaciones en Markdown.         |
+
+
+
+Here is a fun image to brighten your day:
+
+![Fun Image](img/maiz.avif)
+
+Enjoy coding and keep having fun!
